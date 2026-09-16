@@ -15,7 +15,7 @@ class SvgRendererTest {
             background = "\" onload=\"alert(1)",
             textColor = "ffffff"
         )
-        assertContains(svg, "fill=\"#351b29\"")
+        assertContains(svg, "fill=\"#f5ead2\"")
         assertContains(svg, "fill=\"#ffffff\"")
         assertTrue(!svg.contains("onload"))
     }

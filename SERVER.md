@@ -57,6 +57,8 @@ O KFlate usa faixas curvas que passam de espaçadas a compactadas na base da bad
 sobre fundo azul-escuro `#0c1b2b`, com os tons verde e ciano do logo.
 O KeyManager usa um cadeado deitado em SVG: a haste prateada contorna `views` e o corpo
 azul fica atrás do contador. O azul `#0061a4` vem do ícone do aplicativo.
+O Scribe usa papel claro, um traço de tinta e uma pena vetorial em verde-petróleo
+`#0d9488` e ocre `#a16207`, as cores do logo.
 Personalize `background` e `textColor` com seis dígitos hexadecimais, sem `#`.
 Cores inválidas usam o padrão. Ao personalizar, escolha cores com bom contraste.
 
