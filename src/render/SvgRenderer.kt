@@ -163,7 +163,7 @@ fun renderRepositoryBadge(
     val name = repository.substringAfterLast("/").lowercase(Locale.ROOT)
     val (defaultBackground, defaultText) = when (name) {
         "kmap" -> "#e8eddb" to "#173b43"
-        "framebar" -> "#102b3a" to "#ddf4ff"
+        "framebar" -> "#202226" to "#f5f5f4"
         "kflate" -> "#102e25" to "#d8fbed"
         "keymanager" -> "#34240f" to "#fff0cc"
         "scribe" -> "#351b29" to "#ffe3ef"
@@ -176,17 +176,16 @@ fun renderRepositoryBadge(
     val numberWidth = formattedViews.length * 8
     val width = numberX + numberWidth + 14
     val pattern = when (name) {
-        "framebar" -> "<path d=\"M4 6H44V26H4Z M4 12H44 M10 6V12 M16 6V12\"/>"
         "kflate" -> "<path d=\"M4 4H44 M8 10H40 M12 16H36 M8 22H40 M4 28H44\"/>"
         "keymanager" -> "<circle cx=\"12\" cy=\"16\" r=\"7\"/><path d=\"M19 16H44 M34 16V23 M40 16V21\"/>"
         "scribe" -> "<path d=\"M6 7H42 M6 13H34 M6 19H42 M6 25H26\"/>"
         "wg-kotlin" -> "<path d=\"M0 16H10L18 6H30L38 16H48 M10 16 18 26H30L38 16\"/>"
         else -> ""
     }
-    val backgroundSvg = if (name == "kmap") {
-        renderKmapBackground(width, surface)
-    } else {
-        """<rect width="$width" height="32" rx="6" fill="url(#theme)"/>"""
+    val backgroundSvg = when (name) {
+        "kmap" -> renderKmapBackground(width, surface)
+        "framebar" -> renderFramebarBackground(width, surface)
+        else -> """<rect width="$width" height="32" rx="6" fill="url(#theme)"/>"""
     }
     val textOutline = if (name == "kmap") {
         """stroke="#ffffff" stroke-opacity="0.92" stroke-width="2.5" stroke-linejoin="round" paint-order="stroke fill" """

@@ -47,10 +47,12 @@ Todas as badges mostram apenas `views` e o contador, em fonte monoespaçada, com
 de 32 px. O contador começa sempre em x=90, alinhado à esquerda, com 8 px por caractere
 e 14 px de padding após o número. A largura acompanha o contador, sem largura mínima.
 Cada biblioteca tem uma paleta e um padrão de fundo
-temático: mapa, janela, compressão, chave, linhas de escrita ou conexões de rede.
+temático: mapa, linha do tempo, compressão, chave, linhas de escrita ou conexões de rede.
 O KMaP usa um mapa de praia, áreas verdes, ruas e rio desenhado inteiramente em SVG,
 sem imagens rasterizadas. Cores claras e vias com larguras distintas dão o aspecto cartográfico;
 o texto escuro tem contorno branco para manter a leitura sobre o mapa.
+O FrameBar usa um fundo grafite liso em SVG, com marcações discretas na base e cursor
+de reprodução dourado. O texto claro fica sobre uma área livre de detalhes.
 Personalize `background` e `textColor` com seis dígitos hexadecimais, sem `#`.
 Cores inválidas usam o padrão. Ao personalizar, escolha cores com bom contraste.
 
