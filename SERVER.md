@@ -53,6 +53,8 @@ sem imagens rasterizadas. Cores claras e vias com larguras distintas dão o aspe
 o texto escuro tem contorno branco para manter a leitura sobre o mapa.
 O FrameBar usa um fundo grafite liso em SVG, com marcações discretas na base e cursor
 de reprodução dourado. O texto claro fica sobre uma área livre de detalhes.
+O KFlate usa faixas curvas que passam de espaçadas a compactadas na base da badge,
+sobre fundo azul-escuro `#0c1b2b`, com os tons verde e ciano do logo.
 Personalize `background` e `textColor` com seis dígitos hexadecimais, sem `#`.
 Cores inválidas usam o padrão. Ao personalizar, escolha cores com bom contraste.
 
