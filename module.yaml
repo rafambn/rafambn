@@ -1,0 +1,29 @@
+product: jvm/app
+
+settings:
+  ktor:
+    enabled: true
+    version: 3.5.2
+  kotlin:
+    serialization: json
+  jvm:
+    jdk:
+      version: 21
+    release: 21
+    mainClass: io.ktor.server.netty.EngineMain
+
+dependencies:
+  - $ktor.server.core
+  - $ktor.server.config.yaml
+  - $ktor.server.netty
+  - $ktor.client.core
+  - $ktor.client.cio
+  - $ktor.client.contentNegotiation
+  - $ktor.serialization.kotlinx.json
+  - org.jetbrains.kotlinx:kotlinx-coroutines-core:1.11.0
+  - org.jetbrains.kotlin-wrappers:kotlin-css-jvm:2026.9.1
+  - com.h2database:h2:2.5.250
+  - com.rafambn:scribe-slf4j:0.7.0
+
+test-dependencies:
+  - $ktor.server.testHost
