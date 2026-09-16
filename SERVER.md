@@ -55,6 +55,8 @@ O FrameBar usa um fundo grafite liso em SVG, com marcações discretas na base e
 de reprodução dourado. O texto claro fica sobre uma área livre de detalhes.
 O KFlate usa faixas curvas que passam de espaçadas a compactadas na base da badge,
 sobre fundo azul-escuro `#0c1b2b`, com os tons verde e ciano do logo.
+O KeyManager usa um cadeado deitado em SVG: a haste prateada contorna `views` e o corpo
+azul fica atrás do contador. O azul `#0061a4` vem do ícone do aplicativo.
 Personalize `background` e `textColor` com seis dígitos hexadecimais, sem `#`.
 Cores inválidas usam o padrão. Ao personalizar, escolha cores com bom contraste.
 

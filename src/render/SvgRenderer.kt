@@ -165,7 +165,7 @@ fun renderRepositoryBadge(
         "kmap" -> "#e8eddb" to "#173b43"
         "framebar" -> "#202226" to "#f5f5f4"
         "kflate" -> "#0c1b2b" to "#f1f2f6"
-        "keymanager" -> "#34240f" to "#fff0cc"
+        "keymanager" -> "#071d2b" to "#e3f2ff"
         "scribe" -> "#351b29" to "#ffe3ef"
         "wg-kotlin" -> "#1d2344" to "#e5eaff"
         else -> "#202124" to "#ffffff"
@@ -176,7 +176,6 @@ fun renderRepositoryBadge(
     val numberWidth = formattedViews.length * 8
     val width = numberX + numberWidth + 14
     val pattern = when (name) {
-        "keymanager" -> "<circle cx=\"12\" cy=\"16\" r=\"7\"/><path d=\"M19 16H44 M34 16V23 M40 16V21\"/>"
         "scribe" -> "<path d=\"M6 7H42 M6 13H34 M6 19H42 M6 25H26\"/>"
         "wg-kotlin" -> "<path d=\"M0 16H10L18 6H30L38 16H48 M10 16 18 26H30L38 16\"/>"
         else -> ""
@@ -185,6 +184,7 @@ fun renderRepositoryBadge(
         "kmap" -> renderKmapBackground(width, surface)
         "framebar" -> renderFramebarBackground(width, surface)
         "kflate" -> renderKflateBackground(width, surface)
+        "keymanager" -> renderKeymanagerBackground(width, surface)
         else -> """<rect width="$width" height="32" rx="6" fill="url(#theme)"/>"""
     }
     val textOutline = if (name == "kmap") {
