@@ -24,11 +24,15 @@ class SvgRendererTest {
     fun badgesShareDimensionsAndKeepFirstDigitFixedWhenGrowing() {
         com.rafambn.profilebanner.pinnedRepos.forEach { repository ->
             val svg = renderRepositoryBadge("rafambn/$repository", 42)
+            javax.xml.parsers.DocumentBuilderFactory.newInstance()
+                .newDocumentBuilder().parse(svg.byteInputStream())
             assertContains(svg, "width=\"120\" height=\"32\"")
             assertContains(svg, "<text x=\"90\" y=\"21\" textLength=\"16\" lengthAdjust=\"spacingAndGlyphs\">42</text>")
             assertContains(svg, "text-anchor=\"start\"")
             assertContains(svg, "monospace")
             assertTrue(!svg.contains(">$repository</text>"))
+            assertTrue(!svg.contains("<image"))
+            assertTrue(!svg.contains("data:image"))
         }
         val large = renderRepositoryBadge("rafambn/KMaP", Long.MAX_VALUE)
         assertContains(large, "width=\"304\" height=\"32\"")

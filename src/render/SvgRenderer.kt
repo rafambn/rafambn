@@ -162,7 +162,7 @@ fun renderRepositoryBadge(
     val safeRepository = escapeXml(repository)
     val name = repository.substringAfterLast("/").lowercase(Locale.ROOT)
     val (defaultBackground, defaultText) = when (name) {
-        "kmap" -> "#211638" to "#ede4ff"
+        "kmap" -> "#e8eddb" to "#173b43"
         "framebar" -> "#102b3a" to "#ddf4ff"
         "kflate" -> "#102e25" to "#d8fbed"
         "keymanager" -> "#34240f" to "#fff0cc"
@@ -176,7 +176,6 @@ fun renderRepositoryBadge(
     val numberWidth = formattedViews.length * 8
     val width = numberX + numberWidth + 14
     val pattern = when (name) {
-        "kmap" -> "<path d=\"M0 8 16 2 32 10 48 3 M0 24 16 18 32 26 48 19 M16 2V18 M32 10V26\"/>"
         "framebar" -> "<path d=\"M4 6H44V26H4Z M4 12H44 M10 6V12 M16 6V12\"/>"
         "kflate" -> "<path d=\"M4 4H44 M8 10H40 M12 16H36 M8 22H40 M4 28H44\"/>"
         "keymanager" -> "<circle cx=\"12\" cy=\"16\" r=\"7\"/><path d=\"M19 16H44 M34 16V23 M40 16V21\"/>"
@@ -184,18 +183,29 @@ fun renderRepositoryBadge(
         "wg-kotlin" -> "<path d=\"M0 16H10L18 6H30L38 16H48 M10 16 18 26H30L38 16\"/>"
         else -> ""
     }
+    val backgroundSvg = if (name == "kmap") {
+        renderKmapBackground(width, surface)
+    } else {
+        """<rect width="$width" height="32" rx="6" fill="url(#theme)"/>"""
+    }
+    val textOutline = if (name == "kmap") {
+        """stroke="#ffffff" stroke-opacity="0.92" stroke-width="2.5" stroke-linejoin="round" paint-order="stroke fill" """
+    } else {
+        ""
+    }
     return """
         <?xml version="1.0" encoding="UTF-8"?>
         <svg xmlns="http://www.w3.org/2000/svg" width="$width" height="32" viewBox="0 0 $width 32" role="img" aria-labelledby="title">
           <title id="title">$safeRepository views: $formattedViews</title>
           <defs>
+            <clipPath id="badge-clip"><rect width="$width" height="32" rx="6"/></clipPath>
             <pattern id="theme" width="48" height="32" patternUnits="userSpaceOnUse">
               <g fill="none" stroke="$foreground" stroke-width="1" opacity="0.08">$pattern</g>
             </pattern>
           </defs>
           <rect width="$width" height="32" rx="6" fill="$surface"/>
-          <rect width="$width" height="32" rx="6" fill="url(#theme)"/>
-          <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="$foreground" text-anchor="start">
+          ${backgroundSvg.replace("\n", "")}
+          <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="$foreground" text-anchor="start" $textOutline>
             <text x="14" y="21">views</text>
             <text x="$numberX" y="21" textLength="$numberWidth" lengthAdjust="spacingAndGlyphs">$formattedViews</text>
           </g>

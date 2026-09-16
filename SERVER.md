@@ -48,6 +48,9 @@ de 32 px. O contador começa sempre em x=90, alinhado à esquerda, com 8 px por 
 e 14 px de padding após o número. A largura acompanha o contador, sem largura mínima.
 Cada biblioteca tem uma paleta e um padrão de fundo
 temático: mapa, janela, compressão, chave, linhas de escrita ou conexões de rede.
+O KMaP usa uma ilustração aérea de praia, floresta e montanha desenhada inteiramente em SVG,
+sem imagens rasterizadas. Cores claras, caminhos e curvas de nível dão o aspecto cartográfico;
+o texto escuro tem contorno branco para manter a leitura sobre o mapa.
 Personalize `background` e `textColor` com seis dígitos hexadecimais, sem `#`.
 Cores inválidas usam o padrão. Ao personalizar, escolha cores com bom contraste.
 
