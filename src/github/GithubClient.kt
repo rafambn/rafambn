@@ -26,6 +26,9 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.jsonPrimitive
+import kotlinx.serialization.json.contentOrNull
 import org.slf4j.event.Level
 
 private const val CACHE_MILLIS = 15 * 60 * 1000L
@@ -64,10 +67,20 @@ class GithubClient : AutoCloseable {
     override fun close() = client.close()
 
     private suspend fun fetchProfile(): ProfileSnapshot = coroutineScope {
+        val identity = async {
+            fetch(GITHUB_USER, JsonObject(emptyMap())) {
+                get<JsonObject>("https://api.github.com/users/$GITHUB_USER")
+            }
+        }
         val repositories = pinnedRepos
             .map { name -> async { fetchRepository(name) } }
             .awaitAll()
-        ProfileSnapshot(repositories)
+        val user = identity.await()
+        ProfileSnapshot(
+            repositories = repositories,
+            name = user["name"]?.jsonPrimitive?.contentOrNull ?: GITHUB_USER,
+            updatedAt = if (user.isEmpty()) null else java.time.Instant.now()
+        )
     }
 
     private suspend fun fetchRepository(name: String): RepositorySnapshot =

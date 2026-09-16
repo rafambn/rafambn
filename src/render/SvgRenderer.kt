@@ -94,14 +94,21 @@ fun renderProfileSvg(
     mobile: Boolean
 ): String {
     val width = if (mobile) 720 else 1200
-    val height = if (mobile) 1548 else 662
-    val repositoryY = 162
+    val height = if (mobile) 1282 else 680
+    val repositoryY = if (mobile) 422 else 260
     val repositoryWidth = if (mobile) 648 else 348
-    val repositoryHeight = if (mobile) 210 else 220
-    val repositoryGap = if (mobile) 18 else 24
-    val innerWidth = width - 2
-    val innerHeight = height - 2
+    val repositoryHeight = if (mobile) 124 else 180
+    val repositoryGap = if (mobile) 16 else 24
     val animationCss = profileAnimationCss.prependIndent("        ")
+    val mobileCss = if (mobile) """
+        .metric-label { font-size: 16px; letter-spacing: 0.8px; }
+        .metric-value { font-size: 28px; }
+        .repo-name { font-size: 26px; }
+        .repo-description { font-size: 20px; }
+        .repo-meta { font-size: 20px; }
+        .repo-icon-label { font-size: 24px; }
+        .profile-bio { font-size: 22px; }
+    """.trimIndent().prependIndent("            ") else ""
 
     val svg = StringBuilder()
     svg.append(
@@ -117,13 +124,20 @@ fun renderProfileSvg(
             .repo-description { fill: #6b7280; font: 400 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
             .repo-meta { fill: #6b7280; font: 700 11px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
             .repo-icon-label { fill: #ffffff; font: 800 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+            .profile-name { fill: #111827; font: 750 38px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+            .profile-bio { fill: #4b5563; font: 400 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+            $mobileCss
             $animationCss
           </style>
-          <rect width="100%" height="100%" rx="28" fill="#ffffff"/>
-          <rect x="1" y="1" width="$innerWidth" height="$innerHeight" rx="27" fill="none" stroke="#e5e7eb" stroke-width="2"/>
         """.trimIndent()
     )
 
+    val identityX = if (mobile) width / 2 else 36
+    val identityAnchor = if (mobile) "middle" else "start"
+    svg.append(svgTextAnchor(identityX, 86, "profile-name", identityAnchor, truncate(profile.name, 27)))
+    wrapText(profile.bio, if (mobile) 48 else 70, 3).forEachIndexed { index, line ->
+        svg.append(svgTextAnchor(identityX, 124 + index * 24, "profile-bio", identityAnchor, line))
+    }
     renderMetrics(svg, profileStats, width, mobile)
     profile.repositories.take(6).forEachIndexed { index, repository ->
         val x: Int
@@ -218,26 +232,26 @@ private fun renderMetrics(
     mobile: Boolean
 ) {
     val labels = listOf(
-        "TODAY" to stats.today,
-        "THIS WEEK" to stats.week,
-        "THIS MONTH" to stats.month,
-        "ALL TIME" to stats.total
+        "TODAY / VIEWS" to stats.today,
+        "THIS WEEK / VIEWS" to stats.week,
+        "THIS MONTH / VIEWS" to stats.month,
+        "TOTAL / VIEWS" to stats.total
     )
-    val x = 36
-    val gap = if (mobile) 12 else 16
-    val cardWidth = if (mobile) 153 else (width - 72 - 48) / 4
-    val cardHeight = if (mobile) 108 else 104
-    val cardY = 36
+    val x = if (mobile) 36 else 744
+    val gap = 16
+    val cardWidth = if (mobile) (width - 72 - gap) / 2 else 202
+    val cardHeight = 86
 
     labels.forEachIndexed { index, (label, value) ->
-        val cardX = x + index * (cardWidth + gap)
+        val cardX = x + (index % 2) * (cardWidth + gap)
+        val cardY = (if (mobile) 202 else 36) + (index / 2) * (cardHeight + gap)
         svg.append("<g class=\"metric-card metric-card-$index\">\n")
         svg.append(
             """<rect x="$cardX" y="$cardY" width="$cardWidth" height="$cardHeight" rx="18" fill="#fafafa" stroke="#e5e7eb"/>
             """.trimIndent()
         )
         svg.append(svgText(cardX + 16, cardY + 29, "metric-label", label))
-        svg.append(svgText(cardX + 16, cardY + 70, "metric-value", formatNumber(value)))
+        svg.append(svgText(cardX + 16, cardY + 62, "metric-value", formatNumber(value)))
         svg.append("</g>\n")
     }
 }
@@ -252,37 +266,34 @@ private fun renderRepositoryCard(
     views: Long
 ) {
     val color = languageColor(repository.language)
-    val circleX = x + 32
-    val circleY = y + 34
+    val mobile = width > 500
+    val circleX = x + 44
+    val circleY = y + if (mobile) height / 2 else 48
     svg.append(
         """<rect x="$x" y="$y" width="$width" height="$height" rx="22" fill="#ffffff" stroke="#dbeafe" stroke-width="2"/>
-        <circle cx="$circleX" cy="$circleY" r="21" fill="$color"/>
+        <circle cx="$circleX" cy="$circleY" r="28" fill="$color"/>
         """.trimIndent()
     )
-    svg.append(centeredSvgText(x + 32, y + 40, "repo-icon-label", initial(repository.name)))
-    svg.append(svgText(x + 66, y + 39, "repo-name", truncate(repository.name, 24)))
+    svg.append(centeredSvgText(circleX, circleY + 6, "repo-icon-label", initial(repository.name)))
+    svg.append(svgText(x + 88, y + 39, "repo-name", truncate(repository.name, 24)))
 
-    val description = truncate(
-        if (repository.description.isEmpty()) "Pinned repository" else repository.description,
-        if (width > 500) 78 else 38
-    )
-    val (firstLine, secondLine) = splitDescription(description)
-    svg.append(svgText(x + 24, y + 86, "repo-description", firstLine))
-    if (secondLine.isNotEmpty()) {
-        svg.append(svgText(x + 24, y + 108, "repo-description", secondLine))
+    val description = repository.description.ifEmpty { "Pinned repository" }
+    wrapText(description, 32, if (mobile) 2 else 3).forEachIndexed { index, line ->
+        svg.append(svgText(x + 88, y + 66 + index * (if (mobile) 26 else 18), "repo-description", line))
     }
     svg.append(
-        svgText(
-            x + 24,
-            y + height - 25,
+        svgTextAnchor(
+            if (mobile) x + width - 24 else x + 24,
+            y + if (mobile) 43 else height - 24,
             "repo-meta",
+            if (mobile) "end" else "start",
             "★ " + formatNumber(repository.stars)
         )
     )
     svg.append(
         svgTextAnchor(
             x + width - 24,
-            y + height - 25,
+            y + if (mobile) 87 else height - 24,
             "repo-meta",
             "end",
             "views " + formatNumber(views)
@@ -308,21 +319,24 @@ private fun centeredSvgText(x: Int, y: Int, className: String, value: String): S
     "<text x=\"" + x + "\" y=\"" + y + "\" text-anchor=\"middle\" class=\"" +
         className + "\">" + escapeXml(value) + "</text>\n"
 
-private fun splitDescription(description: String): Pair<String, String> {
-    description.indexOf('\n').takeIf { it >= 0 }?.let { newline ->
-        return description.substring(0, newline) to description.substring(newline + 1)
+private fun wrapText(value: String, columns: Int, maxLines: Int): List<String> {
+    var remaining = value.trim().replace(Regex("\\s+"), " ")
+    val lines = mutableListOf<String>()
+    while (remaining.isNotEmpty() && lines.size < maxLines) {
+        if (lines.size == maxLines - 1) {
+            lines += truncate(remaining, columns)
+            break
+        }
+        if (remaining.codePointCount(0, remaining.length) <= columns) {
+            lines += remaining
+            break
+        }
+        val limit = remaining.offsetByCodePoints(0, columns)
+        val boundary = remaining.lastIndexOf(' ', limit).takeIf { it > 0 } ?: limit
+        lines += remaining.substring(0, boundary)
+        remaining = remaining.substring(boundary).trimStart()
     }
-    if (description.codePointCount(0, description.length) <= 42) {
-        return description to ""
-    }
-
-    val codePointBoundary = description.offsetByCodePoints(0, 42)
-    val whitespaceBoundary = description
-        .substring(0, codePointBoundary)
-        .indexOfLast(Char::isWhitespace)
-    val boundary = if (whitespaceBoundary > 0) whitespaceBoundary else codePointBoundary
-    return description.substring(0, boundary).trim() to
-        description.substring(boundary).trim()
+    return lines
 }
 
 private fun truncate(value: String, maxChars: Int): String {

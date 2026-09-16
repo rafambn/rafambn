@@ -43,6 +43,13 @@ curl -i http://localhost:3000/badge/rafambn/KMaP.svg
 
 O badge retorna `404` para outro usuário ou para um repositório que não esteja em `pinnedRepos`.
 
+O profile segue os wireframes em `assets/`, sem a faixa geral de estrelas.
+Cada repositório mantém seu contador de estrelas ao lado das visualizações.
+No desktop, nome e bio ficam ao lado das quatro métricas em uma grade 2 × 2;
+os seis repositórios usam três colunas. No mobile, o cabeçalho fica acima das métricas
+e os repositórios formam uma lista. O SVG tem fundo transparente, sem borda externa,
+título da seção de repositórios ou rodapé.
+
 Todas as badges mostram apenas `views` e o contador, em fonte monoespaçada, com altura
 de 32 px. O contador começa sempre em x=90, alinhado à esquerda, com 8 px por caractere
 e 14 px de padding após o número. A largura acompanha o contador, sem largura mínima.
@@ -95,8 +102,10 @@ arquivo.
 
 ## GitHub
 
-O perfil fica em cache por 15 minutos. A API REST pública fornece descrição, linguagem e estrelas
-de cada repositório. Se uma chamada falhar, o banner usa os dados padrão daquele repositório.
+O perfil fica em cache por 15 minutos. A bio é definida em `ProfileSnapshot.kt`.
+A API REST pública fornece o nome do usuário,
+além dos dados e das estrelas de cada repositório.
+Se uma chamada falhar, o banner usa os dados padrão correspondentes.
 
 ## Produção
 
