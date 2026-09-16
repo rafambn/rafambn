@@ -59,6 +59,8 @@ O KeyManager usa um cadeado deitado em SVG: a haste prateada contorna `views` e 
 azul fica atrás do contador. O azul `#0061a4` vem do ícone do aplicativo.
 O Scribe usa papel claro, um traço de tinta e uma pena vetorial em verde-petróleo
 `#0d9488` e ocre `#a16207`, as cores do logo.
+O wg-kotlin usa linhas de rede amarelas `#facc15` conectadas ao símbolo da biblioteca, com o laranja
+`#fb923c` e o grafite `#2d3748` do logo publicado em rafambn.com, inteiramente em SVG.
 Personalize `background` e `textColor` com seis dígitos hexadecimais, sem `#`.
 Cores inválidas usam o padrão. Ao personalizar, escolha cores com bom contraste.
 

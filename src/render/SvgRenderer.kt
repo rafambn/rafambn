@@ -167,7 +167,7 @@ fun renderRepositoryBadge(
         "kflate" -> "#0c1b2b" to "#f1f2f6"
         "keymanager" -> "#071d2b" to "#e3f2ff"
         "scribe" -> "#f5ead2" to "#443522"
-        "wg-kotlin" -> "#1d2344" to "#e5eaff"
+        "wg-kotlin" -> "#2d3748" to "#fff7ed"
         else -> "#202124" to "#ffffff"
     }
     val surface = badgeColor(background, defaultBackground)
@@ -175,17 +175,14 @@ fun renderRepositoryBadge(
     val numberX = 90
     val numberWidth = formattedViews.length * 8
     val width = numberX + numberWidth + 14
-    val pattern = when (name) {
-        "wg-kotlin" -> "<path d=\"M0 16H10L18 6H30L38 16H48 M10 16 18 26H30L38 16\"/>"
-        else -> ""
-    }
     val backgroundSvg = when (name) {
         "kmap" -> renderKmapBackground(width, surface)
         "framebar" -> renderFramebarBackground(width, surface)
         "kflate" -> renderKflateBackground(width, surface)
         "keymanager" -> renderKeymanagerBackground(width, surface)
         "scribe" -> renderScribeBackground(width, surface)
-        else -> """<rect width="$width" height="32" rx="6" fill="url(#theme)"/>"""
+        "wg-kotlin" -> renderWgKotlinBackground(width, surface)
+        else -> ""
     }
     val textOutline = if (name == "kmap") {
         """stroke="#ffffff" stroke-opacity="0.92" stroke-width="2.5" stroke-linejoin="round" paint-order="stroke fill" """
@@ -198,9 +195,6 @@ fun renderRepositoryBadge(
           <title id="title">$safeRepository views: $formattedViews</title>
           <defs>
             <clipPath id="badge-clip"><rect width="$width" height="32" rx="6"/></clipPath>
-            <pattern id="theme" width="48" height="32" patternUnits="userSpaceOnUse">
-              <g fill="none" stroke="$foreground" stroke-width="1" opacity="0.08">$pattern</g>
-            </pattern>
           </defs>
           <rect width="$width" height="32" rx="6" fill="$surface"/>
           ${backgroundSvg.replace("\n", "")}
