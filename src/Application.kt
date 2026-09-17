@@ -1,7 +1,6 @@
 package com.rafambn.profilebanner
 
 import com.rafambn.profilebanner.counter.ViewStore
-import com.rafambn.profilebanner.github.GithubClient
 import com.rafambn.profilebanner.logging.AppScribe
 import com.rafambn.profilebanner.web.configureRoutes
 import com.rafambn.scribe.seal
@@ -19,9 +18,7 @@ fun Application.module() {
     AppScribe.hire()
 
     val views = ViewStore(databasePath)
-    val github = GithubClient()
-
-    configureRoutes(views, github)
+    configureRoutes(views)
 
     monitor.subscribe(ApplicationStopped) {
         try {
@@ -35,8 +32,6 @@ fun Application.module() {
                 scroll["exception"] = JsonPrimitive(error.stackTraceToString())
                 scroll.seal(AppScribe)
             }
-        } finally {
-            github.close()
         }
     }
 }

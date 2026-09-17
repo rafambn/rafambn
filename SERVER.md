@@ -29,8 +29,11 @@ O JAR executável fica em `build/`.
 
 ```text
 GET /github/profile.svg
+GET /
 GET /github/profile.svg?layout=mobile
 GET /badge/{owner}/{repository}.svg
+GET /preview/launch-base.svg
+GET /preview/launch-base.svg?layout=mobile
 ```
 
 Exemplos:
@@ -43,12 +46,20 @@ curl -i http://localhost:3000/badge/rafambn/KMaP.svg
 
 O badge retorna `404` para outro usuário ou para um repositório que não esteja em `pinnedRepos`.
 
-O profile segue os wireframes em `assets/`, sem a faixa geral de estrelas.
-Cada repositório mantém seu contador de estrelas ao lado das visualizações.
-No desktop, nome e bio ficam ao lado das quatro métricas em uma grade 2 × 2;
-os seis repositórios usam três colunas. No mobile, o cabeçalho fica acima das métricas
-e os repositórios formam uma lista. O SVG tem fundo transparente, sem borda externa,
-título da seção de repositórios ou rodapé.
+A página inicial mostra o cenário de lançamento em desenvolvimento, inteiramente em SVG.
+A composição web mede 1600 × 670, com fundo transparente, plataforma de concreto,
+escadas amarelas, canteiro e três árvores opacas de cada lado. As menores ficam
+em primeiro plano. As luzes piscam em ciclos de 1,6 segundo e respeitam
+`prefers-reduced-motion`. A adaptação mobile está pausada; o parâmetro
+`?layout=mobile` mantém apenas uma prévia de largura reduzida.
+
+A página inicial e a prévia não incrementam contadores. `/github/profile.svg`
+mostra o mesmo cenário e mantém a contagem de visitas do perfil.
+Os dados de repositórios, nome e bio ainda não fazem parte desse cenário.
+
+As árvores são geradas por `bun assets/trees/draw-trees.mjs`, que atualiza
+os SVGs individuais e `resources/trees/foreground.svg`. A referência visual
+preservada está em `output/imagegen/rocket-layouts/01-amanhecer.png`.
 
 Todas as badges mostram apenas `views` e o contador, em fonte monoespaçada, com altura
 de 32 px. O contador começa sempre em x=90, alinhado à esquerda, com 8 px por caractere
@@ -99,13 +110,6 @@ durante o encerramento normal.
 O contador mede requisições. Robôs, proxies e acessos repetidos entram no total. Para backup, pare o
 processo e copie o arquivo indicado por `DATABASE_PATH`. Não execute duas instâncias usando o mesmo
 arquivo.
-
-## GitHub
-
-O perfil fica em cache por 15 minutos. A bio é definida em `ProfileSnapshot.kt`.
-A API REST pública fornece o nome do usuário,
-além dos dados e das estrelas de cada repositório.
-Se uma chamada falhar, o banner usa os dados padrão correspondentes.
 
 ## Produção
 

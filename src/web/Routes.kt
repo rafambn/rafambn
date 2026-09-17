@@ -1,9 +1,8 @@
 package com.rafambn.profilebanner.web
 
 import com.rafambn.profilebanner.counter.ViewStore
-import com.rafambn.profilebanner.github.GithubClient
 import com.rafambn.profilebanner.pinnedRepos
-import com.rafambn.profilebanner.render.renderProfileSvg
+import com.rafambn.profilebanner.render.renderLaunchBaseSvg
 import com.rafambn.profilebanner.render.renderRepositoryBadge
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
@@ -19,29 +18,33 @@ import java.util.Locale
 
 private const val PROFILE_USER = "rafambn"
 
-fun Application.configureRoutes(views: ViewStore, github: GithubClient) {
+fun Application.configureRoutes(views: ViewStore) {
     routing {
+        get("/") {
+            call.respondText(
+                """<!doctype html>
+                <html lang="en"><head><meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <title>Rafael — Launch base</title>
+                <style>html,body{margin:0;background:#fff}picture,img{display:block;width:100%;height:auto}</style>
+                </head><body><picture>
+                <img src="/preview/launch-base.svg" alt="Launch platform at dawn. Great things begin with a small step.">
+                </picture></body></html>""".trimIndent(),
+                ContentType.Text.Html
+            )
+        }
+
+        get("/preview/launch-base.svg") {
+            call.respondSvg(renderLaunchBaseSvg(
+                mobile = call.request.queryParameters["layout"] == "mobile"
+            ))
+        }
+
         get("/github/profile.svg") {
-            val profileStats = views.increment(profileScope(PROFILE_USER))
-            val profile = github.profile()
+            views.increment(profileScope(PROFILE_USER))
             val mobile = call.request.queryParameters["layout"]
                 ?.equals("mobile", ignoreCase = true) == true
-            val repositoryViews = profile.repositories
-                .take(6)
-                .map { repository ->
-                    views.stats(
-                        repoScope(PROFILE_USER, repository.name)
-                    ).total
-                }
-
-            call.respondSvg(
-                renderProfileSvg(
-                    profile = profile,
-                    profileStats = profileStats,
-                    repositoryViews = repositoryViews,
-                    mobile = mobile
-                )
-            )
+            call.respondSvg(renderLaunchBaseSvg(mobile = mobile))
         }
 
         get("/badge/{owner}/{repository}") {

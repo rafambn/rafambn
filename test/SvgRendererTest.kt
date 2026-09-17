@@ -1,8 +1,5 @@
 package com.rafambn.profilebanner.render
 
-import com.rafambn.profilebanner.counter.ViewStats
-import com.rafambn.profilebanner.profile.ProfileSnapshot
-import com.rafambn.profilebanner.profile.RepositorySnapshot
 import kotlin.test.Test
 import kotlin.test.assertContains
 import kotlin.test.assertTrue
@@ -40,37 +37,7 @@ class SvgRendererTest {
     }
 
     @Test
-    fun rendersResponsiveProfileAndEscapedBadge() {
-        val profile = ProfileSnapshot(
-            listOf(RepositorySnapshot("KMaP", "A useful library", 12, "Kotlin")),
-            name = "Rafael & tools",
-            bio = "Kotlin <developer>"
-        )
-        val mobileSvg = renderProfileSvg(
-            profile = profile,
-            profileStats = ViewStats(today = 1, week = 2, month = 3, total = 4),
-            repositoryViews = listOf(5),
-            mobile = true
-        )
-        val badgeSvg = renderRepositoryBadge("rafambn/KMaP&tools", 1234)
-
-        assertTrue(mobileSvg.startsWith("<?xml"))
-        assertContains(mobileSvg, "width=\"720\" height=\"1282\"")
-        assertContains(mobileSvg, "★ 12")
-        assertContains(mobileSvg, "Rafael &amp; tools")
-        assertContains(mobileSvg, "Kotlin &lt;developer&gt;")
-        assertTrue(!mobileSvg.contains("Pinned repositories"))
-        assertTrue(!mobileSvg.contains("github.com/rafambn"))
-        val desktopSvg = renderProfileSvg(profile, ViewStats(1, 2, 3, 4), listOf(5), false)
-        for (svg in listOf(mobileSvg, desktopSvg)) {
-            javax.xml.parsers.DocumentBuilderFactory.newInstance()
-                .newDocumentBuilder().parse(svg.byteInputStream())
-            assertContains(svg, "★ 12")
-        }
-        assertContains(mobileSvg, "views 5")
-        assertContains(mobileSvg, "@keyframes metric-enter")
-        assertContains(mobileSvg, "@media (prefers-reduced-motion: reduce)")
-        assertContains(mobileSvg, "class=\"repository-card repository-card-0\"")
-        assertContains(badgeSvg, "KMaP&amp;tools views: 1.234")
+    fun escapesRepositoryNames() {
+        assertContains(renderRepositoryBadge("rafambn/KMaP&tools", 1234), "KMaP&amp;tools views: 1.234")
     }
 }
