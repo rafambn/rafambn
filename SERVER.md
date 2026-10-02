@@ -57,9 +57,10 @@ A página inicial e a prévia não incrementam contadores. `/github/profile.svg`
 mostra o mesmo cenário e mantém a contagem de visitas do perfil.
 Os dados de repositórios, nome e bio ainda não fazem parte desse cenário.
 
-As árvores são geradas por `bun assets/trees/draw-trees.mjs`, que atualiza
-os SVGs individuais e `resources/trees/foreground.svg`. A referência visual
-preservada está em `output/imagegen/rocket-layouts/01-amanhecer.png`.
+Os desenhos das árvores ficam em `resources/trees/arch-oak.svg` e
+`resources/trees/forked-tree.svg`. O servidor incorpora os símbolos de
+`resources/trees/foreground.svg` no SVG final. A referência visual preservada
+está em `assets/01-amanhecer.png`.
 
 Todas as badges mostram apenas `views` e o contador, em fonte monoespaçada, com altura
 de 32 px. O contador começa sempre em x=90, alinhado à esquerda, com 8 px por caractere

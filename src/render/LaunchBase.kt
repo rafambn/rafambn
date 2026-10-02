@@ -6,10 +6,16 @@ fun renderLaunchBaseSvg(mobile: Boolean = false): String = buildString {
     val glassWidth = if (mobile) 410 else 660
     val left = center - glassWidth / 2
     val right = center + glassWidth / 2
+    val upperFloor = 215
+    val lowerFloor = 259
+    val bottom = 370
+    val stairs = listOf(left + 129, right - 129)
+    val upperRailings = listOf(0 to stairs[0] - 31, stairs[0] + 31 to stairs[1] - 31, stairs[1] + 31 to width)
+    val plantingBeds = listOf(left to stairs[0] - 31, stairs[0] + 31 to stairs[1] - 31, stairs[1] + 31 to right)
     append("""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="$width" height="670" viewBox="0 -300 $width 670" style="display:block;width:100%;height:auto" role="img" aria-labelledby="title desc">
 <title id="title">Mission Control — launch base</title>
-<desc id="desc">A launch platform at dawn with a continuous concrete foundation, amber lamps and trees at its edges.</desc>
+<desc id="desc">A launch platform at dawn with a continuous concrete foundation, amber lamps and trees at its edges. Painted on the wall: Great things begin with a small step</desc>
 <style>
 @keyframes beacon {0%,100%{opacity:1} 50%{opacity:.12}}
 .lamp-light {animation:beacon 1.6s ease-in-out infinite}
@@ -25,68 +31,80 @@ fun renderLaunchBaseSvg(mobile: Boolean = false): String = buildString {
  <path d="M12 17h4m18 20h5m23-20h3m18 34h4M5 66h5m42-7h4m32 9h3" stroke="#fff6da" opacity=".48"/>
  <circle cx="24" cy="46" r="1.2" fill="#5c6558" opacity=".2"/><circle cx="68" cy="8" r=".8" fill="#5c6558" opacity=".35"/>
  </pattern>
+ <pattern id="paint-wear" width="73" height="41" patternUnits="userSpaceOnUse">
+ <rect width="73" height="41" fill="white"/>
+ <path d="M5 8l2-.5 1.1.7-2.3.9ZM28 4l.8 1.8-1.2.5-.4-1.6ZM47 15l3.1-.7.5.8-2.9.9ZM13 27l1.6-.7 1 1.4-1.8.5ZM59 33l2.8-.4-.6 1-2.3.3ZM34 36l.8-1.4.9.6-.6 1.6Z" fill="#888"/>
+ <path d="M21 17l1.7-.3-.4 1.2-1.3.2ZM64 7l1.1-.3.3 1.1-1 .5ZM41 24l2-.5.2.7-1.7.6Z" fill="#333"/>
+ <path d="M8 37l6-.8M51 4l3-.5M36 12l4-.7" fill="none" stroke="#bbb" stroke-width=".45"/>
+ </pattern>
+ <mask id="motto-paint" maskUnits="userSpaceOnUse" x="-220" y="-30" width="440" height="70"><rect x="-220" y="-30" width="440" height="70" fill="url(#paint-wear)"/></mask>
+ $wallLetteringDefinitions
 </defs>
 """)
-    append("""<rect y="215" width="$width" height="155" fill="url(#concrete)"/>
-<rect y="215" width="$width" height="155" fill="url(#aggregate)"/>
-<rect y="215" width="$width" height="155" fill="url(#panel-seams)"/>
-<path d="M0 215H$width" stroke="#e5d3ae" stroke-width="3"/>
-""")
-    val stairs = listOf(left + 129, right - 129)
-    append("""<defs><mask id="upper-access"><rect width="$width" height="370" fill="white"/>""")
-    for (x in stairs) append("""<rect x="${x - 31}" y="175" width="62" height="41" fill="black"/>""")
-    append("</mask></defs><g mask=\"url(#upper-access)\">")
-    append(launchRailing(-17, width + 26, 215))
-    append("</g>")
+    for ((start, end) in upperRailings) {
+        append(launchRailing(start, end, upperFloor))
+    }
     for (x in 155 until width - 100 step 215) {
         if (stairs.none { kotlin.math.abs(it - x) < 38 }) {
-            append("""<use href="#lamp" transform="translate($x 215)"/>""")
+            append("""<use href="#lamp" transform="translate($x $upperFloor)"/>""")
         }
     }
-    append("""<rect x="$left" y="259" width="$glassWidth" height="111" fill="url(#concrete)"/>
-<path d="M$left 260H$right" stroke="#e5d3ae" stroke-width="3"/>
-<rect x="$left" y="264" width="$glassWidth" height="106" fill="url(#aggregate)"/>
-<rect x="$left" y="264" width="$glassWidth" height="106" fill="url(#panel-seams)"/>
-<path d="M$left 262V370M$right 262V370" stroke="#68746b" stroke-width="2" opacity=".6"/>
-<text x="$center" y="322" text-anchor="middle" fill="#354544" font-family="monospace" font-size="${if (mobile) 19 else 24}" letter-spacing="${if (mobile) 2 else 4}">GREAT THINGS BEGIN</text>
-<text x="$center" y="351" text-anchor="middle" fill="#354544" font-family="monospace" font-size="${if (mobile) 19 else 24}" letter-spacing="${if (mobile) 2 else 4}">WITH A SMALL STEP.</text>
+    // The concrete covers the last unit of each support to keep floor joins closed at any scale.
+    append("""<rect y="$upperFloor" width="$width" height="${bottom - upperFloor}" fill="url(#concrete)"/>
+<rect y="$upperFloor" width="$width" height="${bottom - upperFloor}" fill="url(#aggregate)"/>
+<rect y="$upperFloor" width="$width" height="${bottom - upperFloor}" fill="url(#panel-seams)"/>
+<rect y="$upperFloor" width="$width" height="3" fill="#e5d3ae"/>
 """)
-    for ((start, end) in listOf(left + 24 to left + 104, left + 156 to right - 156, right - 104 to right - 24)) {
-        for (x in start..end - 60 step 53) {
-            if (x == left + 156 || x == right - 104) continue
-            append(launchShrub(x, 257, .43, (x / 53) % 2 == 0))
+    for ((start, end) in plantingBeds) {
+        // At this scale, foliage extends 7 units left and 62 right of its origin.
+        val first = start + 8 + 7
+        val last = end - 8 - 62
+        val count = maxOf(1, (end - start - 16) / 53)
+        for (index in 0 until count) {
+            if (start == stairs[0] + 31 && index == 0) continue
+            val x = if (count == 1) (first + last) / 2 else first + (last - first) * index / (count - 1)
+            append(launchShrub(x, lowerFloor + 1, .43, (x / 53) % 2 == 0))
         }
     }
     for (x in stairs) {
         append("""<g transform="translate($x 0)">
-<rect x="-29" y="215" width="58" height="44" fill="#8e7136"/>
+<rect x="-29" y="$upperFloor" width="58" height="${lowerFloor - upperFloor + 1}" fill="#8e7136"/>
 """)
-        for (y in 215..253 step 7) {
-            append("""<rect x="-27" y="$y" width="54" height="4" fill="#e3b64b"/><path d="M-27 $y H27" stroke="#ffe08a" stroke-width="1.4"/>""")
+        for (step in 0 until 6) {
+            val y = upperFloor + (lowerFloor - upperFloor) * step / 6
+            append("""<rect x="-29" y="$y" width="58" height="4" fill="#e3b64b"/><path d="M-29 $y H29" stroke="#ffe08a" stroke-width="1.4"/>""")
         }
-        append("""<path d="M-31 259V188M31 259V188" stroke="#9b7d38" stroke-width="5"/>
-<path d="M-32 256V188M30 256V188" stroke="#f3ce69" stroke-width="2"/>
-<path d="M-36 215H-29M29 215H36" stroke="#f3ce69" stroke-width="3"/>
+        append("""<path d="M-31 ${lowerFloor + 1}V${upperFloor - 28}M31 ${lowerFloor + 1}V${upperFloor - 28}" stroke="#9b7d38" stroke-width="5"/>
+<path d="M-32 ${lowerFloor + 1}V${upperFloor - 28}M30 ${lowerFloor + 1}V${upperFloor - 28}" stroke="#f3ce69" stroke-width="2"/>
 </g>""")
     }
-    for (originalX in listOf(left + 156, right - 104)) {
-        append(launchShrub(originalX, 257, .43, (originalX / 53) % 2 == 0))
-    }
-    append(launchRailing(left, right, 259))
-    append("""<path d="M$right 231V259" stroke="#b79b66" stroke-width="3"/>""")
-    for (x in listOf(left, right)) {
-        append("""<use href="#lamp" transform="translate($x 259)"/>""")
+    val overlappingShrub = stairs[0] + 27
+    append(launchShrub(overlappingShrub, lowerFloor + 1, .43, (overlappingShrub / 53) % 2 == 0))
+    append(launchRailing(left + 2, right - 2, lowerFloor))
+    append("""<rect x="$left" y="$lowerFloor" width="$glassWidth" height="${bottom - lowerFloor}" fill="url(#concrete)"/>
+<rect x="$left" y="$lowerFloor" width="$glassWidth" height="${bottom - lowerFloor}" fill="url(#aggregate)"/>
+<rect x="$left" y="$lowerFloor" width="$glassWidth" height="${bottom - lowerFloor}" fill="url(#panel-seams)"/>
+<rect x="${left - 1}" y="$lowerFloor" width="${glassWidth + 2}" height="3" fill="#e5d3ae"/>
+<path d="M$left $lowerFloor V$bottom M$right $lowerFloor V$bottom" fill="none" stroke="#68746b" stroke-width="2" opacity=".6"/>
+<g transform="translate($center ${if (mobile) 319 else 315}) scale(${if (mobile) .8 else 1.0})" fill="#3b4841" opacity=".9" mask="url(#motto-paint)"><use href="#launch-motto"/></g>
+""")
+    for (x in listOf(left + 2, right - 2)) {
+        append("""<use href="#lamp" transform="translate($x $lowerFloor)"/>""")
     }
     append(launchVegetation(width))
     append("</svg>")
 }
+
+private val wallLetteringDefinitions = checkNotNull(
+    object {}.javaClass.getResource("/lettering/launch-motto.svg")
+).readText()
 
 private val foregroundTreeDefinitions = checkNotNull(
     object {}.javaClass.getResource("/trees/foreground.svg")
 ).readText()
 
 private fun launchVegetation(width: Int): String = """
-<defs>$foregroundTreeDefinitions</defs>
+$foregroundTreeDefinitions
 <g aria-label="Close foreground oak trees, with original branching and colored foliage">
 <use href="#arch-oak" x="-258" y="-295" width="665" height="760"/>
 <g transform="translate($width 0) scale(-1 1)">
@@ -114,7 +132,9 @@ private fun launchShrub(x: Int, y: Int, scale: Double, flipped: Boolean): String
 
 private fun launchRailing(left: Int, right: Int, y: Int): String = buildString {
     append("""<path d="M$left ${y - 25}H${right}M$left ${y - 10}H$right" stroke="#b79b66" stroke-width="3" fill="none"/>""")
-    for (x in left..right step 43) {
-        append("""<path d="M$x ${y - 28}V$y" stroke="#786f51" stroke-width="3"/><path d="M${x + 1} ${y - 28}V$y" stroke="#dbbd80"/>""")
+    val sections = maxOf(1, (right - left + 42) / 43)
+    for (index in 0..sections) {
+        val x = left + (right - left) * index / sections
+        append("""<path d="M$x ${y - 28}V${y + 1}" stroke="#786f51" stroke-width="3"/><path d="M${x + 1} ${y - 28}V${y + 1}" stroke="#dbbd80"/>""")
     }
 }

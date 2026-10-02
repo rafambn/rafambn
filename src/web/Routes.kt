@@ -28,7 +28,7 @@ fun Application.configureRoutes(views: ViewStore) {
                 <title>Rafael — Launch base</title>
                 <style>html,body{margin:0;background:#fff}picture,img{display:block;width:100%;height:auto}</style>
                 </head><body><picture>
-                <img src="/preview/launch-base.svg" alt="Launch platform at dawn. Great things begin with a small step.">
+                <img src="/preview/launch-base.svg" alt="Launch platform at dawn. Great things begin with a small step">
                 </picture></body></html>""".trimIndent(),
                 ContentType.Text.Html
             )
