@@ -47,7 +47,7 @@ curl -i http://localhost:3000/badge/rafambn/KMaP.svg
 O badge retorna `404` para outro usuário ou para um repositório que não esteja em `pinnedRepos`.
 
 A página inicial mostra o cenário de lançamento em desenvolvimento, inteiramente em SVG.
-A composição web mede 1600 × 670, com fundo transparente, plataforma de concreto,
+A composição web mede 1600 × 670, com uma baía ao amanhecer, plataforma de concreto,
 escadas amarelas, canteiro e três árvores opacas de cada lado. As menores ficam
 em primeiro plano. As luzes piscam em ciclos de 1,6 segundo e respeitam
 `prefers-reduced-motion`. A adaptação mobile está pausada; o parâmetro
@@ -61,6 +61,11 @@ Os desenhos das árvores ficam em `resources/trees/arch-oak.svg` e
 `resources/trees/forked-tree.svg`. O servidor incorpora os símbolos de
 `resources/trees/foreground.svg` no SVG final. A referência visual preservada
 está em `assets/01-amanhecer.png`.
+
+O fundo em `resources/backgrounds/coastal-dawn.svg` usa a paleta dessa referência,
+com céu azul e dourado, nuvens, sol baixo, reflexos no mar e encostas com névoa.
+Ele é incorporado atrás da plataforma e recortado pelo centro na prévia mobile,
+sem imagens rasterizadas nem requisições externas.
 
 Todas as badges mostram apenas `views` e o contador, em fonte monoespaçada, com altura
 de 32 px. O contador começa sempre em x=90, alinhado à esquerda, com 8 px por caractere

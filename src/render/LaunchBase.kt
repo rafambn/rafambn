@@ -15,7 +15,7 @@ fun renderLaunchBaseSvg(mobile: Boolean = false): String = buildString {
     append("""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="$width" height="670" viewBox="0 -300 $width 670" style="display:block;width:100%;height:auto" role="img" aria-labelledby="title desc">
 <title id="title">Mission Control — launch base</title>
-<desc id="desc">A launch platform at dawn with a continuous concrete foundation, amber lamps and trees at its edges. Painted on the wall: Great things begin with a small step</desc>
+<desc id="desc">A launch platform overlooking a coastal bay at dawn, with golden clouds, misty mountains, a continuous concrete foundation, amber lamps and trees at its edges. Painted on the wall: Great things begin with a small step</desc>
 <style>
 @keyframes beacon {0%,100%{opacity:1} 50%{opacity:.12}}
 .lamp-light {animation:beacon 1.6s ease-in-out infinite}
@@ -41,6 +41,7 @@ fun renderLaunchBaseSvg(mobile: Boolean = false): String = buildString {
  $wallLetteringDefinitions
 </defs>
 """)
+    append(coastalDawnBackground)
     for ((start, end) in upperRailings) {
         append(launchRailing(start, end, upperFloor))
     }
@@ -94,6 +95,10 @@ fun renderLaunchBaseSvg(mobile: Boolean = false): String = buildString {
     append(launchVegetation(width))
     append("</svg>")
 }
+
+private val coastalDawnBackground = checkNotNull(
+    object {}.javaClass.getResource("/backgrounds/coastal-dawn.svg")
+).readText()
 
 private val wallLetteringDefinitions = checkNotNull(
     object {}.javaClass.getResource("/lettering/launch-motto.svg")
