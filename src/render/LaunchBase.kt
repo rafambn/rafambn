@@ -15,7 +15,7 @@ fun renderLaunchBaseSvg(mobile: Boolean = false): String = buildString {
     append("""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="$width" height="1410" viewBox="0 -1040 $width 1410" style="display:block;width:100%;height:auto" role="img" aria-labelledby="title desc">
 <title id="title">Mission Control — launch base</title>
-<desc id="desc">Two red steel launch towers with cross bracing, three levels of service platforms, ladders and amber beacons frame an open space for a rocket. Below them, a concrete platform overlooks a coastal bay at dawn, with golden clouds, misty mountains and trees at its edges. Painted on the wall: Great things begin with a small step</desc>
+<desc id="desc">An ivory rocket with two side boosters stands between red steel launch towers, with cross bracing, service platforms, ladders and amber beacons. Below them, a concrete platform overlooks a coastal bay at dawn, with golden clouds, misty mountains and trees at its edges. Painted on the wall: Great things begin with a small step</desc>
 <style>
 @keyframes beacon {0%,100%{opacity:1} 50%{opacity:.12}}
 .lamp-light {animation:beacon 1.6s ease-in-out infinite}
@@ -43,6 +43,7 @@ fun renderLaunchBaseSvg(mobile: Boolean = false): String = buildString {
 """)
     append(coastalDawnBackground)
     append("""<g transform="translate(${center - 800} -895)">$launchGantry</g>""")
+    append("""<g transform="translate(${center - 200} -785)">$launchRocket</g>""")
     for ((start, end) in upperRailings) {
         append(launchRailing(start, end, upperFloor))
     }
@@ -103,6 +104,10 @@ private val coastalDawnBackground = checkNotNull(
 
 private val launchGantry = checkNotNull(
     object {}.javaClass.getResource("/structures/launch-gantry.svg")
+).readText()
+
+private val launchRocket = checkNotNull(
+    object {}.javaClass.getResource("/structures/rocket.svg")
 ).readText()
 
 private val wallLetteringDefinitions = checkNotNull(

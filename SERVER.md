@@ -70,10 +70,16 @@ sem imagens rasterizadas nem requisições externas.
 A estrutura vermelha fica em `resources/structures/launch-gantry.svg`, um SVG
 independente incorporado ao cenário. Duas torres de aço com travessas em X sustentam
 três níveis de plataformas laterais e uma ponte superior. Escadas com proteção,
-braços de acesso, mangueiras e sinalizadores âmbar completam a estrutura, com o vão
-central reservado para o foguete. Os pés apoiam na plataforma, atrás dos corrimãos.
+braços de acesso, mangueiras e sinalizadores âmbar completam a estrutura ao redor
+do foguete. Os pés apoiam na plataforma, atrás dos corrimãos.
 O céu foi ampliado para cima; a base, o horizonte e as árvores mantêm suas posições
 e dimensões. A prévia mobile recorta a estrutura pelo centro.
+
+O foguete fica em `resources/structures/rocket.svg`, também independente e sem
+imagens rasterizadas. O corpo claro recebe luz quente à esquerda, com emblema
+vermelho, dois propulsores laterais, aletas e motores expostos. As inscrições são
+traçados vetoriais, sem depender de fontes instaladas. O foguete cobre os braços
+de acesso e se apoia no piso por uma base metálica, atrás dos corrimãos.
 
 Todas as badges mostram apenas `views` e o contador, em fonte monoespaçada, com altura
 de 32 px. O contador começa sempre em x=90, alinhado à esquerda, com 8 px por caractere
