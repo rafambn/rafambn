@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="400" height="1000" viewBox="0 0 400 1000" role="img" aria-labelledby="rocket-title rocket-desc">
 <title id="rocket-title">Ready for launch</title>
-<desc id="rocket-desc">An ivory and silver rocket with a red arrow emblem, two side boosters, exposed engine bells and a steel launch mount. Warm dawn light catches its left edge. The hull reads Build, Learn, Share, Repeat and A more open tomorrow. The boosters read Simpler tools and Brighter people.</desc>
+<desc id="rocket-desc">An ivory and silver rocket with a red arrow emblem, two side boosters, exposed engine bells and a steel launch mount. Warm dawn light catches its left edge.</desc>
 <defs>
   <linearGradient id="rocket-hull" x1="0" y1="0" x2="1" y2="0">
     <stop stop-color="#ad7750"/><stop offset=".04" stop-color="#f4c181"/>
@@ -154,21 +154,4 @@
 </g>
 <path d="M66 952H79M129 952H141M259 952H271M321 952H334M147 924H155M245 924H253" stroke="#f1c282" stroke-width="2"/>
 <path d="M72 960H77M130 960H135M265 960H270M323 960H328M152 952H157M243 952H248" stroke="#343b31" stroke-width="3"/>
-
-<!-- Narrow technical lettering is outlined so it needs no installed fonts. -->
-<g fill="none" stroke="#34454a" stroke-width=".75" stroke-linecap="square" stroke-linejoin="round" aria-hidden="true">
-<g transform="translate(180.4 343) scale(1.4)"><path transform="translate(0 0)" d="M0 7V0H2.5L4 1V2.5L2.5 3.5H0M2.5 3.5L4 4.5V6L2.5 7H0"/><path transform="translate(6 0)" d="M0 0V6L1 7H3L4 6V0"/><path transform="translate(12 0)" d="M1 0H3M2 0V7M1 7H3"/><path transform="translate(18 0)" d="M0 0V7H4"/><path transform="translate(24 0)" d="M0 7V0H2L4 1.5V5.5L2 7Z"/></g>
-<g transform="translate(180.4 365) scale(1.4)"><path transform="translate(0 0)" d="M0 0V7H4"/><path transform="translate(6 0)" d="M4 0H0V7H4M0 3.5H3"/><path transform="translate(12 0)" d="M0 7L2 0L4 7M.8 4.5H3.2"/><path transform="translate(18 0)" d="M0 7V0H3L4 1V3L3 4H0M2 4L4 7"/><path transform="translate(24 0)" d="M0 7V0L4 7V0"/></g>
-<g transform="translate(180.4 387) scale(1.4)"><path transform="translate(0 0)" d="M4 1L3 0H1L0 1V2.5L4 4.5V6L3 7H1L0 6"/><path transform="translate(6 0)" d="M0 0V7M4 0V7M0 3.5H4"/><path transform="translate(12 0)" d="M0 7L2 0L4 7M.8 4.5H3.2"/><path transform="translate(18 0)" d="M0 7V0H3L4 1V3L3 4H0M2 4L4 7"/><path transform="translate(24 0)" d="M4 0H0V7H4M0 3.5H3"/></g>
-<g transform="translate(176.2 409) scale(1.4)"><path transform="translate(0 0)" d="M0 7V0H3L4 1V3L3 4H0M2 4L4 7"/><path transform="translate(6 0)" d="M4 0H0V7H4M0 3.5H3"/><path transform="translate(12 0)" d="M0 7V0H3L4 1V3L3 4H0"/><path transform="translate(18 0)" d="M4 0H0V7H4M0 3.5H3"/><path transform="translate(24 0)" d="M0 7L2 0L4 7M.8 4.5H3.2"/><path transform="translate(30 0)" d="M0 0H4M2 0V7"/></g>
-<g transform="translate(197.6 798) scale(1.2)"><path transform="translate(0 0)" d="M0 7L2 0L4 7M.8 4.5H3.2"/></g>
-<g transform="translate(186.8 819) scale(1.2)"><path transform="translate(0 0)" d="M0 7V0L2 4L4 0V7"/><path transform="translate(6 0)" d="M1 0H3L4 1V6L3 7H1L0 6V1Z"/><path transform="translate(12 0)" d="M0 7V0H3L4 1V3L3 4H0M2 4L4 7"/><path transform="translate(18 0)" d="M4 0H0V7H4M0 3.5H3"/></g>
-<g transform="translate(186.8 840) scale(1.2)"><path transform="translate(0 0)" d="M1 0H3L4 1V6L3 7H1L0 6V1Z"/><path transform="translate(6 0)" d="M0 7V0H3L4 1V3L3 4H0"/><path transform="translate(12 0)" d="M4 0H0V7H4M0 3.5H3"/><path transform="translate(18 0)" d="M0 7V0L4 7V0"/></g>
-<g transform="translate(172.4 861) scale(1.2)"><path transform="translate(0 0)" d="M0 0H4M2 0V7"/><path transform="translate(6 0)" d="M1 0H3L4 1V6L3 7H1L0 6V1Z"/><path transform="translate(12 0)" d="M0 7V0L2 4L4 0V7"/><path transform="translate(18 0)" d="M1 0H3L4 1V6L3 7H1L0 6V1Z"/><path transform="translate(24 0)" d="M0 7V0H3L4 1V3L3 4H0M2 4L4 7"/><path transform="translate(30 0)" d="M0 7V0H3L4 1V3L3 4H0M2 4L4 7"/><path transform="translate(36 0)" d="M1 0H3L4 1V6L3 7H1L0 6V1Z"/><path transform="translate(42 0)" d="M0 0L.7 7L2 3L3.3 7L4 0"/></g>
-<g transform="translate(85 706) scale(0.95)"><path transform="translate(0 0)" d="M4 1L3 0H1L0 1V2.5L4 4.5V6L3 7H1L0 6"/><path transform="translate(6 0)" d="M1 0H3M2 0V7M1 7H3"/><path transform="translate(12 0)" d="M0 7V0L2 4L4 0V7"/><path transform="translate(18 0)" d="M0 7V0H3L4 1V3L3 4H0"/><path transform="translate(24 0)" d="M0 0V7H4"/><path transform="translate(30 0)" d="M4 0H0V7H4M0 3.5H3"/><path transform="translate(36 0)" d="M0 7V0H3L4 1V3L3 4H0M2 4L4 7"/></g>
-<g transform="translate(90.7 725) scale(0.95)"><path transform="translate(0 0)" d="M0 0H4M2 0V7"/><path transform="translate(6 0)" d="M1 0H3L4 1V6L3 7H1L0 6V1Z"/><path transform="translate(12 0)" d="M1 0H3L4 1V6L3 7H1L0 6V1Z"/><path transform="translate(18 0)" d="M0 0V7H4"/><path transform="translate(24 0)" d="M4 1L3 0H1L0 1V2.5L4 4.5V6L3 7H1L0 6"/></g>
-<g transform="translate(274.15 706) scale(0.95)"><path transform="translate(0 0)" d="M0 7V0H2.5L4 1V2.5L2.5 3.5H0M2.5 3.5L4 4.5V6L2.5 7H0"/><path transform="translate(6 0)" d="M0 7V0H3L4 1V3L3 4H0M2 4L4 7"/><path transform="translate(12 0)" d="M1 0H3M2 0V7M1 7H3"/><path transform="translate(18 0)" d="M4 1L3 0H1L0 1V6L1 7H4V4H2.5"/><path transform="translate(24 0)" d="M0 0V7M4 0V7M0 3.5H4"/><path transform="translate(30 0)" d="M0 0H4M2 0V7"/><path transform="translate(36 0)" d="M4 0H0V7H4M0 3.5H3"/><path transform="translate(42 0)" d="M0 7V0H3L4 1V3L3 4H0M2 4L4 7"/></g>
-<g transform="translate(279.85 725) scale(0.95)"><path transform="translate(0 0)" d="M0 7V0H3L4 1V3L3 4H0"/><path transform="translate(6 0)" d="M4 0H0V7H4M0 3.5H3"/><path transform="translate(12 0)" d="M1 0H3L4 1V6L3 7H1L0 6V1Z"/><path transform="translate(18 0)" d="M0 7V0H3L4 1V3L3 4H0"/><path transform="translate(24 0)" d="M0 0V7H4"/><path transform="translate(30 0)" d="M4 0H0V7H4M0 3.5H3"/></g>
-<path d="M190 436H210M192 887H208" stroke-width="1.2"/>
-</g>
 </svg>
