@@ -13,9 +13,9 @@ fun renderLaunchBaseSvg(mobile: Boolean = false): String = buildString {
     val upperRailings = listOf(0 to stairs[0] - 31, stairs[0] + 31 to stairs[1] - 31, stairs[1] + 31 to width)
     val plantingBeds = listOf(left to stairs[0] - 31, stairs[0] + 31 to stairs[1] - 31, stairs[1] + 31 to right)
     append("""<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="$width" height="670" viewBox="0 -300 $width 670" style="display:block;width:100%;height:auto" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="$width" height="1410" viewBox="0 -1040 $width 1410" style="display:block;width:100%;height:auto" role="img" aria-labelledby="title desc">
 <title id="title">Mission Control — launch base</title>
-<desc id="desc">A launch platform overlooking a coastal bay at dawn, with golden clouds, misty mountains, a continuous concrete foundation, amber lamps and trees at its edges. Painted on the wall: Great things begin with a small step</desc>
+<desc id="desc">Two red steel launch towers with cross bracing, three levels of service platforms, ladders and amber beacons frame an open space for a rocket. Below them, a concrete platform overlooks a coastal bay at dawn, with golden clouds, misty mountains and trees at its edges. Painted on the wall: Great things begin with a small step</desc>
 <style>
 @keyframes beacon {0%,100%{opacity:1} 50%{opacity:.12}}
 .lamp-light {animation:beacon 1.6s ease-in-out infinite}
@@ -42,6 +42,7 @@ fun renderLaunchBaseSvg(mobile: Boolean = false): String = buildString {
 </defs>
 """)
     append(coastalDawnBackground)
+    append("""<g transform="translate(${center - 800} -895)">$launchGantry</g>""")
     for ((start, end) in upperRailings) {
         append(launchRailing(start, end, upperFloor))
     }
@@ -98,6 +99,10 @@ fun renderLaunchBaseSvg(mobile: Boolean = false): String = buildString {
 
 private val coastalDawnBackground = checkNotNull(
     object {}.javaClass.getResource("/backgrounds/coastal-dawn.svg")
+).readText()
+
+private val launchGantry = checkNotNull(
+    object {}.javaClass.getResource("/structures/launch-gantry.svg")
 ).readText()
 
 private val wallLetteringDefinitions = checkNotNull(

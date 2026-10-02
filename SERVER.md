@@ -47,7 +47,7 @@ curl -i http://localhost:3000/badge/rafambn/KMaP.svg
 O badge retorna `404` para outro usuário ou para um repositório que não esteja em `pinnedRepos`.
 
 A página inicial mostra o cenário de lançamento em desenvolvimento, inteiramente em SVG.
-A composição web mede 1600 × 670, com uma baía ao amanhecer, plataforma de concreto,
+A composição web mede 1600 × 1410, com uma baía ao amanhecer, plataforma de concreto,
 escadas amarelas, canteiro e três árvores opacas de cada lado. As menores ficam
 em primeiro plano. As luzes piscam em ciclos de 1,6 segundo e respeitam
 `prefers-reduced-motion`. A adaptação mobile está pausada; o parâmetro
@@ -66,6 +66,14 @@ O fundo em `resources/backgrounds/coastal-dawn.svg` usa a paleta dessa referênc
 com céu azul e dourado, nuvens, sol baixo, reflexos no mar e encostas com névoa.
 Ele é incorporado atrás da plataforma e recortado pelo centro na prévia mobile,
 sem imagens rasterizadas nem requisições externas.
+
+A estrutura vermelha fica em `resources/structures/launch-gantry.svg`, um SVG
+independente incorporado ao cenário. Duas torres de aço com travessas em X sustentam
+três níveis de plataformas laterais e uma ponte superior. Escadas com proteção,
+braços de acesso, mangueiras e sinalizadores âmbar completam a estrutura, com o vão
+central reservado para o foguete. Os pés apoiam na plataforma, atrás dos corrimãos.
+O céu foi ampliado para cima; a base, o horizonte e as árvores mantêm suas posições
+e dimensões. A prévia mobile recorta a estrutura pelo centro.
 
 Todas as badges mostram apenas `views` e o contador, em fonte monoespaçada, com altura
 de 32 px. O contador começa sempre em x=90, alinhado à esquerda, com 8 px por caractere

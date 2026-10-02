@@ -1,5 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" x="0" y="-300" width="100%" height="516" viewBox="0 0 1600 516" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg" x="0" y="-1040" width="100%" height="1256" viewBox="0 -740 1600 1256" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
 <defs>
+  <linearGradient id="dawn-upper-sky" x2="0" y2="1">
+    <stop stop-color="#6992b4"/>
+    <stop offset=".6" stop-color="#769bb9"/>
+    <stop offset="1" stop-color="#7e9fbc"/>
+  </linearGradient>
   <linearGradient id="dawn-sky" x2="0" y2="1">
     <stop stop-color="#7e9fbc"/>
     <stop offset=".34" stop-color="#b1bfca"/>
@@ -65,8 +70,19 @@
 </defs>
 
 <!-- Open sky and low, warm light from the left. -->
+<rect y="-740" width="1600" height="741" fill="url(#dawn-upper-sky)"/>
+<g fill="url(#dawn-cloud)" opacity=".7" filter="url(#dawn-soft-cloud)">
+  <path d="M-60-532C-12-554 17-546 40-531C67-542 97-536 116-520C143-533 169-524 187-510C215-521 242-506 261-501L306-492L341-483L309-474L275-483L254-479L226-489L201-485L172-497L147-492L123-505L99-501L70-515L46-510L20-521L-7-517Z"/>
+  <path d="M987-616C1021-629 1045-620 1069-610C1091-624 1115-616 1136-602C1162-611 1184-597 1203-592C1229-601 1250-591 1275-584L1324-574L1371-560L1331-554L1297-565L1271-561L1241-573L1218-568L1191-580L1165-577L1137-587L1117-583L1087-595L1066-591L1037-602L1013-598Z"/>
+  <path d="M1246-316C1276-332 1303-324 1323-311C1347-320 1368-310 1389-301C1411-314 1435-305 1451-293C1473-301 1498-288 1521-283L1563-279L1621-258L1584-251L1552-261L1525-257L1496-269L1472-266L1445-279L1425-274L1397-286L1373-282L1348-296L1324-290L1296-303L1274-298Z"/>
+  <path d="M173-193C202-207 226-200 246-188C271-198 292-188 311-181C331-189 355-179 373-172L419-158L394-152L366-159L345-155L319-167L297-163L271-175L252-170L227-182L207-177Z"/>
+</g>
+<g fill="#f6dec5" opacity=".5">
+  <path d="M132-500l22 5 21-3 24 10 23-2 28 10-25-3-20 1-24-9-22 1ZM1121-590l18 6 24-3 24 10 25-1 30 9-27-2-20 2-27-10-20 1ZM1379-286l20 5 21-3 27 11 23-2 34 11-28-3-22 2-27-10-22 1Z"/>
+  <path d="M405-593l24-4 35 8-29 2ZM696-420l20-5 28 8-24 2ZM245-363l30-5 37 10-28 1ZM918-219l24-6 35 9-31 3Z" opacity=".5"/>
+</g>
 <rect width="1600" height="516" fill="url(#dawn-sky)"/>
-<rect width="1600" height="516" fill="url(#dawn-sunlight)"/>
+<rect y="-100" width="1600" height="616" fill="url(#dawn-sunlight)"/>
 
 <!-- Long, broken cloud banks keep the middle of the composition open. -->
 <g fill="url(#dawn-cloud)" filter="url(#dawn-soft-cloud)">
