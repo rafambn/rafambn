@@ -1,6 +1,7 @@
 package com.rafambn.profilebanner.render
 
 import com.rafambn.profilebanner.RepositoryStats
+import com.rafambn.profilebanner.counter.ViewStats
 import com.rafambn.profilebanner.pinnedRepos
 import org.w3c.dom.Element
 import javax.xml.parsers.DocumentBuilderFactory
@@ -10,6 +11,25 @@ import kotlin.test.assertContains
 import kotlin.test.assertTrue
 
 class LaunchBaseTest {
+    @Test
+    fun profileHeaderShowsEachWindowAndPreservesExactAccessibleCounts() {
+        val svg = renderLaunchBaseSvg(profileStats = ViewStats(29, 31, 12_345, Long.MAX_VALUE))
+        val document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(svg.byteInputStream())
+        val groups = document.getElementsByTagName("g")
+        val panel = (0 until groups.length).map { groups.item(it) as Element }
+            .single { it.getAttribute("id") == "profile-views" }
+        assertContains(document.documentElement.textContent, "Rafael Mendonça")
+        assertContains(document.documentElement.textContent, "Solutions architect. Making complex things simple.")
+        assertEquals("29", panel.getAttribute("data-today"))
+        assertEquals("31", panel.getAttribute("data-week"))
+        assertEquals("12345", panel.getAttribute("data-month"))
+        assertEquals(Long.MAX_VALUE.toString(), panel.getAttribute("data-total"))
+        assertContains(panel.textContent, "12.3k")
+        assertContains(panel.textContent, "9.2E")
+        assertContains(panel.getAttribute("aria-label"), "12.345 in the last 30 days")
+        assertContains(panel.getAttribute("aria-label"), "9.223.372.036.854.775.807 total")
+    }
+
     @Test
     fun repositoryCardsLinkToTheirReposAndDistinguishZeroFromUnavailableStars() {
         val svg = renderLaunchBaseSvg(repositoryStats = mapOf(

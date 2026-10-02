@@ -47,7 +47,7 @@ curl -i http://localhost:3000/badge/rafambn/KMaP.svg
 O badge retorna `404` para outro usuário ou para um repositório que não esteja em `pinnedRepos`.
 
 A página inicial mostra o cenário de lançamento em desenvolvimento, inteiramente em SVG.
-A composição web mede 1600 × 1410, com uma baía ao amanhecer, plataforma de concreto,
+A composição web mede 1600 × 1540, com uma baía ao amanhecer, plataforma de concreto,
 escadas amarelas, canteiro e três árvores opacas de cada lado. As menores ficam
 em primeiro plano. As luzes piscam em ciclos de 1,6 segundo e respeitam
 `prefers-reduced-motion`. A adaptação mobile está pausada; o parâmetro
@@ -56,7 +56,13 @@ em primeiro plano. As luzes piscam em ciclos de 1,6 segundo e respeitam
 A página inicial e a prévia não incrementam contadores. `/github/profile.svg`
 mostra o mesmo cenário e mantém a contagem de visitas do perfil.
 Seis cards nas plataformas mostram os repositórios fixados, estrelas e views.
-Nome e bio ainda não fazem parte desse cenário.
+Acima do foguete ficam o nome Rafael Mendonça, a frase “Solutions architect. Making
+complex things simple.” e um painel metálico apoiado na ponte superior. O painel
+mostra as visitas do perfil em quatro períodos: Today, dia atual em UTC; Week,
+últimos 7 dias; Month, últimos 30 dias; Total, todas as requisições registradas.
+Em `/github/profile.svg`, os valores já incluem a requisição atual. A página
+inicial e as prévias apenas leem os mesmos valores. Contagens a partir de 10 mil
+usam sufixos compactos; a descrição acessível preserva o número exato.
 
 As estrelas vêm da API pública do GitHub, consultada pelo servidor a cada 15 minutos.
 O cache fica em memória. Em falhas, mantém a última contagem disponível; antes da
@@ -72,6 +78,8 @@ GitHub, os links internos não funcionam; o README inclui os seis links abaixo d
 Os cards usam Barlow Condensed SemiBold, incorporada no SVG a partir de
 `resources/fonts/BarlowCondensed-SemiBold.woff2`, com licença em `resources/fonts/OFL.txt`.
 A fonte vem de Google Fonts, sem requisições do navegador para fontes externas.
+O cabeçalho também incorpora Source Serif 4 Bold e Barlow Regular, obtidas de
+Google Fonts. Os arquivos e suas licenças OFL estão em `resources/fonts/`.
 
 Os desenhos das árvores ficam em `resources/trees/arch-oak.svg` e
 `resources/trees/forked-tree.svg`. O servidor incorpora os símbolos de

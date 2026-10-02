@@ -11,8 +11,8 @@ internal fun renderRepositoryCards(center: Int, stats: Map<String, RepositorySta
         val x = center + if (index % 2 == 0) -416 else 124
         val y = -770 + index / 2 * 250
         val counts = stats[repository] ?: RepositoryStats()
-        val stars = counts.stars?.let(::formatCardCount) ?: "—"
-        val views = formatCardCount(counts.views)
+        val stars = counts.stars?.let(::formatCompactCount) ?: "—"
+        val views = formatCompactCount(counts.views)
         val starDescription = counts.stars?.let { "${formatNumber(it)} GitHub stars" }
             ?: "GitHub stars temporarily unavailable"
         val description = when (repository) {
@@ -58,19 +58,6 @@ internal fun renderRepositoryCards(center: Int, stats: Map<String, RepositorySta
 </a>
 """)
     }
-}
-
-private fun formatCardCount(count: Long): String {
-    if (count < 10_000) return formatNumber(count)
-    val (divisor, suffix) = when {
-        count >= 1_000_000_000_000_000_000L -> 1e18 to "E"
-        count >= 1_000_000_000_000_000L -> 1e15 to "P"
-        count >= 1_000_000_000_000L -> 1e12 to "T"
-        count >= 1_000_000_000L -> 1e9 to "B"
-        count >= 1_000_000L -> 1e6 to "M"
-        else -> 1e3 to "k"
-    }
-    return String.format(Locale.ROOT, "%.1f", count / divisor).removeSuffix(".0") + suffix
 }
 
 private val repositoryCardFont = Base64.getEncoder().encodeToString(checkNotNull(

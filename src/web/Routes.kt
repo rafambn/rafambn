@@ -31,12 +31,15 @@ fun Application.configureRoutes(views: ViewStore, stars: GitHubStars) {
     routing {
         get("/") {
             call.response.headers.append(HttpHeaders.CacheControl, "no-store")
-            val scene = renderLaunchBaseSvg(repositoryStats = repositoryStats()).substringAfter("?>")
+            val scene = renderLaunchBaseSvg(
+                repositoryStats = repositoryStats(),
+                profileStats = views.stats(profileScope(PROFILE_USER))
+            ).substringAfter("?>")
             call.respondText(
                 """<!doctype html>
                 <html lang="en"><head><meta charset="utf-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
-                <title>Rafael — Launch base</title>
+                <title>Rafael Mendonça — Mission Control</title>
                 <style>html,body{margin:0;background:#fff}main{display:block}svg{max-width:100%}</style>
                 </head><body><main aria-label="Rafael's open source repositories">$scene</main></body></html>""".trimIndent(),
                 ContentType.Text.Html
@@ -46,15 +49,20 @@ fun Application.configureRoutes(views: ViewStore, stars: GitHubStars) {
         get("/preview/launch-base.svg") {
             call.respondSvg(renderLaunchBaseSvg(
                 mobile = call.request.queryParameters["layout"] == "mobile",
-                repositoryStats = repositoryStats()
+                repositoryStats = repositoryStats(),
+                profileStats = views.stats(profileScope(PROFILE_USER))
             ))
         }
 
         get("/github/profile.svg") {
-            views.increment(profileScope(PROFILE_USER))
+            val profileStats = views.increment(profileScope(PROFILE_USER))
             val mobile = call.request.queryParameters["layout"]
                 ?.equals("mobile", ignoreCase = true) == true
-            call.respondSvg(renderLaunchBaseSvg(mobile = mobile, repositoryStats = repositoryStats()))
+            call.respondSvg(renderLaunchBaseSvg(
+                mobile = mobile,
+                repositoryStats = repositoryStats(),
+                profileStats = profileStats
+            ))
         }
 
         get("/badge/{owner}/{repository}") {
