@@ -1,6 +1,8 @@
 package com.rafambn.profilebanner.web
 
 import com.rafambn.profilebanner.counter.ViewStore
+import com.rafambn.profilebanner.RepositoryStats
+import com.rafambn.profilebanner.github.GitHubStars
 import com.rafambn.profilebanner.pinnedRepos
 import com.rafambn.profilebanner.render.renderLaunchBaseSvg
 import com.rafambn.profilebanner.render.renderRepositoryBadge
@@ -18,25 +20,33 @@ import java.util.Locale
 
 private const val PROFILE_USER = "rafambn"
 
-fun Application.configureRoutes(views: ViewStore) {
+fun Application.configureRoutes(views: ViewStore, stars: GitHubStars) {
+    fun repositoryStats(): Map<String, RepositoryStats> {
+        val starCounts = stars.counts
+        return pinnedRepos.associateWith { repository ->
+            RepositoryStats(starCounts[repository], views.stats(repoScope(PROFILE_USER, repository)).total)
+        }
+    }
+
     routing {
         get("/") {
+            call.response.headers.append(HttpHeaders.CacheControl, "no-store")
+            val scene = renderLaunchBaseSvg(repositoryStats = repositoryStats()).substringAfter("?>")
             call.respondText(
                 """<!doctype html>
                 <html lang="en"><head><meta charset="utf-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <title>Rafael — Launch base</title>
-                <style>html,body{margin:0;background:#fff}picture,img{display:block;width:100%;height:auto}</style>
-                </head><body><picture>
-                <img src="/preview/launch-base.svg" alt="An ivory rocket between red launch towers above a coastal platform at dawn. Great things begin with a small step">
-                </picture></body></html>""".trimIndent(),
+                <style>html,body{margin:0;background:#fff}main{display:block}svg{max-width:100%}</style>
+                </head><body><main aria-label="Rafael's open source repositories">$scene</main></body></html>""".trimIndent(),
                 ContentType.Text.Html
             )
         }
 
         get("/preview/launch-base.svg") {
             call.respondSvg(renderLaunchBaseSvg(
-                mobile = call.request.queryParameters["layout"] == "mobile"
+                mobile = call.request.queryParameters["layout"] == "mobile",
+                repositoryStats = repositoryStats()
             ))
         }
 
@@ -44,7 +54,7 @@ fun Application.configureRoutes(views: ViewStore) {
             views.increment(profileScope(PROFILE_USER))
             val mobile = call.request.queryParameters["layout"]
                 ?.equals("mobile", ignoreCase = true) == true
-            call.respondSvg(renderLaunchBaseSvg(mobile = mobile))
+            call.respondSvg(renderLaunchBaseSvg(mobile = mobile, repositoryStats = repositoryStats()))
         }
 
         get("/badge/{owner}/{repository}") {

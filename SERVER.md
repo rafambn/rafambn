@@ -55,7 +55,23 @@ em primeiro plano. As luzes piscam em ciclos de 1,6 segundo e respeitam
 
 A página inicial e a prévia não incrementam contadores. `/github/profile.svg`
 mostra o mesmo cenário e mantém a contagem de visitas do perfil.
-Os dados de repositórios, nome e bio ainda não fazem parte desse cenário.
+Seis cards nas plataformas mostram os repositórios fixados, estrelas e views.
+Nome e bio ainda não fazem parte desse cenário.
+
+As estrelas vêm da API pública do GitHub, consultada pelo servidor a cada 15 minutos.
+O cache fica em memória. Em falhas, mantém a última contagem disponível; antes da
+primeira resposta válida, mostra `—`. Limites da API interrompem a rodada e adiam
+novas consultas conforme `Retry-After` e `X-RateLimit-Reset`.
+As views são as mesmas acumuladas pelas badges, consultadas sem incremento.
+Não são as métricas privadas de tráfego do GitHub.
+
+Cada card abre seu repositório no GitHub e pode receber foco pelo teclado. A página
+inicial incorpora o SVG diretamente para permitir os links. Aberto diretamente,
+`/preview/launch-base.svg` também é interativo. Em um `<img>`, como no README do
+GitHub, os links internos não funcionam; o README inclui os seis links abaixo da imagem.
+Os cards usam Barlow Condensed SemiBold, incorporada no SVG a partir de
+`resources/fonts/BarlowCondensed-SemiBold.woff2`, com licença em `resources/fonts/OFL.txt`.
+A fonte vem de Google Fonts, sem requisições do navegador para fontes externas.
 
 Os desenhos das árvores ficam em `resources/trees/arch-oak.svg` e
 `resources/trees/forked-tree.svg`. O servidor incorpora os símbolos de

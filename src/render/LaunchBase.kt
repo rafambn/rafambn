@@ -1,6 +1,11 @@
 package com.rafambn.profilebanner.render
 
-fun renderLaunchBaseSvg(mobile: Boolean = false): String = buildString {
+import com.rafambn.profilebanner.RepositoryStats
+
+fun renderLaunchBaseSvg(
+    mobile: Boolean = false,
+    repositoryStats: Map<String, RepositoryStats> = emptyMap()
+): String = buildString {
     val width = if (mobile) 720 else 1600
     val center = width / 2
     val glassWidth = if (mobile) 410 else 660
@@ -13,9 +18,9 @@ fun renderLaunchBaseSvg(mobile: Boolean = false): String = buildString {
     val upperRailings = listOf(0 to stairs[0] - 31, stairs[0] + 31 to stairs[1] - 31, stairs[1] + 31 to width)
     val plantingBeds = listOf(left to stairs[0] - 31, stairs[0] + 31 to stairs[1] - 31, stairs[1] + 31 to right)
     append("""<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="$width" height="1410" viewBox="0 -1040 $width 1410" style="display:block;width:100%;height:auto" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="$width" height="1410" viewBox="0 -1040 $width 1410" style="display:block;width:100%;height:auto" role="group" aria-labelledby="title desc">
 <title id="title">Mission Control — launch base</title>
-<desc id="desc">An ivory rocket with two side boosters stands between red steel launch towers, with cross bracing, service platforms, ladders and amber beacons. Below them, a concrete platform overlooks a coastal bay at dawn, with golden clouds, misty mountains and trees at its edges. Painted on the wall: Great things begin with a small step</desc>
+<desc id="desc">Six linked repository panels with GitHub stars and recorded views hang from red launch towers around an ivory rocket. Below them, a concrete platform overlooks a coastal bay at dawn. Painted on the wall: Great things begin with a small step</desc>
 <style>
 @keyframes beacon {0%,100%{opacity:1} 50%{opacity:.12}}
 .lamp-light {animation:beacon 1.6s ease-in-out infinite}
@@ -40,10 +45,14 @@ fun renderLaunchBaseSvg(mobile: Boolean = false): String = buildString {
  <mask id="motto-paint" maskUnits="userSpaceOnUse" x="-220" y="-30" width="440" height="70"><rect x="-220" y="-30" width="440" height="70" fill="url(#paint-wear)"/></mask>
  $wallLetteringDefinitions
 </defs>
+<g aria-hidden="true">
 """)
     append(coastalDawnBackground)
     append("""<g transform="translate(${center - 800} -895)">$launchGantry</g>""")
     append("""<g transform="translate(${center - 200} -785)">$launchRocket</g>""")
+    append("</g>")
+    append(renderRepositoryCards(center, repositoryStats))
+    append("""<g aria-hidden="true">""")
     for ((start, end) in upperRailings) {
         append(launchRailing(start, end, upperFloor))
     }
@@ -95,6 +104,7 @@ fun renderLaunchBaseSvg(mobile: Boolean = false): String = buildString {
         append("""<use href="#lamp" transform="translate($x $lowerFloor)"/>""")
     }
     append(launchVegetation(width))
+    append("</g>")
     append("</svg>")
 }
 

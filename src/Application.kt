@@ -1,11 +1,15 @@
 package com.rafambn.profilebanner
 
 import com.rafambn.profilebanner.counter.ViewStore
+import com.rafambn.profilebanner.github.GitHubStars
 import com.rafambn.profilebanner.logging.AppScribe
 import com.rafambn.profilebanner.web.configureRoutes
 import com.rafambn.scribe.seal
 import io.ktor.server.application.Application
 import io.ktor.server.application.ApplicationStopped
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 import kotlinx.serialization.json.JsonPrimitive
 import org.slf4j.event.Level
 import java.nio.file.Path
@@ -18,9 +22,18 @@ fun Application.module() {
     AppScribe.hire()
 
     val views = ViewStore(databasePath)
-    configureRoutes(views)
+    val stars = GitHubStars()
+    val refreshStars = launch {
+        while (isActive) {
+            stars.refresh()
+            delay(60_000)
+        }
+    }
+    configureRoutes(views, stars)
 
     monitor.subscribe(ApplicationStopped) {
+        refreshStars.cancel()
+        stars.close()
         try {
             views.close()
         } catch (error: Exception) {
