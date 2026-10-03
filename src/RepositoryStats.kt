@@ -1,3 +1,9 @@
 package com.rafambn.profilebanner
 
-data class RepositoryStats(val stars: Long? = null, val views: Long = 0)
+import com.rafambn.profilebanner.counter.ViewStats
+
+data class RepositoryStats(
+    val name: String,
+    val stars: Long?,
+    val views: ViewStats
+)
