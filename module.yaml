@@ -17,6 +17,7 @@ dependencies:
   - $ktor.server.config.yaml
   - $ktor.server.netty
   - org.jetbrains.kotlinx:kotlinx-coroutines-core:1.11.0
+  - org.jetbrains.kotlin-wrappers:kotlin-css-jvm:2026.9.1
   - com.h2database:h2:2.5.250
   - com.rafambn:scribe-slf4j:0.7.0
 

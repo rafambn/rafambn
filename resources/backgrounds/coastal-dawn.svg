@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" x="0" y="-1170" width="100%" height="1386" viewBox="0 -870 1600 1386" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs>
+  <linearGradient id="dawn-upper-sky" x2="0" y2="1">
+    <stop stop-color="#6992b4"/>
+    <stop offset=".6" stop-color="#769bb9"/>
+    <stop offset="1" stop-color="#7e9fbc"/>
+  </linearGradient>
+  <linearGradient id="dawn-sky" x2="0" y2="1">
+    <stop stop-color="#7e9fbc"/>
+    <stop offset=".34" stop-color="#b1bfca"/>
+    <stop offset=".64" stop-color="#dac7c1"/>
+    <stop offset=".84" stop-color="#f1cba7"/>
+    <stop offset="1" stop-color="#f8dfb1"/>
+  </linearGradient>
+  <radialGradient id="dawn-sunlight" gradientUnits="userSpaceOnUse" cx="430" cy="323" r="420">
+    <stop stop-color="#fff0bb" stop-opacity=".96"/>
+    <stop offset=".27" stop-color="#ffe3a6" stop-opacity=".69"/>
+    <stop offset=".62" stop-color="#ffd6ab" stop-opacity=".27"/>
+    <stop offset="1" stop-color="#ffd6ab" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="dawn-cloud" x1=".3" y1="0" x2=".48" y2="1">
+    <stop stop-color="#bfc4cb"/>
+    <stop offset=".45" stop-color="#e5c9c0"/>
+    <stop offset=".8" stop-color="#f8d3b3"/>
+    <stop offset="1" stop-color="#ffe6c3"/>
+  </linearGradient>
+  <linearGradient id="dawn-distant-rock" x2="0" y2="1">
+    <stop stop-color="#9f9ea9"/>
+    <stop offset="1" stop-color="#c1b6b3"/>
+  </linearGradient>
+  <linearGradient id="dawn-sea" x2=".15" y2="1">
+    <stop stop-color="#cad0cb"/>
+    <stop offset=".35" stop-color="#a5b9bf"/>
+    <stop offset="1" stop-color="#789ca9"/>
+  </linearGradient>
+  <radialGradient id="dawn-reflection">
+    <stop stop-color="#ffe8b0" stop-opacity=".78"/>
+    <stop offset=".45" stop-color="#ffe2b3" stop-opacity=".43"/>
+    <stop offset="1" stop-color="#ffe2b3" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="dawn-coastal-rock" x1=".15" y1="0" x2=".8" y2="1">
+    <stop stop-color="#9ba29c"/>
+    <stop offset=".42" stop-color="#818f90"/>
+    <stop offset="1" stop-color="#617e83"/>
+  </linearGradient>
+  <linearGradient id="dawn-woodland" x1="0" y1="0" x2=".75" y2="1">
+    <stop stop-color="#939a75"/>
+    <stop offset=".36" stop-color="#788b75"/>
+    <stop offset="1" stop-color="#476d67"/>
+  </linearGradient>
+  <linearGradient id="dawn-near-shore" x1="0" y1="0" x2=".6" y2="1">
+    <stop stop-color="#82917a"/>
+    <stop offset="1" stop-color="#496e64"/>
+  </linearGradient>
+  <linearGradient id="dawn-haze" x2="0" y2="1">
+    <stop stop-color="#fff0d2" stop-opacity="0"/>
+    <stop offset=".55" stop-color="#fff0d2" stop-opacity=".48"/>
+    <stop offset="1" stop-color="#e5e5d9" stop-opacity="0"/>
+  </linearGradient>
+  <filter id="dawn-soft-cloud" x="-5%" y="-20%" width="110%" height="140%" color-interpolation-filters="sRGB">
+    <feGaussianBlur stdDeviation="1.1"/>
+  </filter>
+  <filter id="dawn-soft-mist" x="-10%" y="-40%" width="120%" height="180%" color-interpolation-filters="sRGB">
+    <feGaussianBlur stdDeviation="4"/>
+  </filter>
+  <clipPath id="dawn-water-clip"><rect y="361" width="1600" height="155"/></clipPath>
+  <clipPath id="dawn-right-coast-clip">
+    <path d="M1600 244C1556 251 1531 273 1504 272L1468 288L1436 283L1408 307L1388 302L1357 322L1328 316L1309 337L1277 339L1252 362L1223 366L1204 382L1166 389L1146 406L1112 413L1095 433L1053 443L1033 457L990 469L963 493L948 516H1600Z"/>
+  </clipPath>
+</defs>
+
+<!-- Open sky and low, warm light from the left. -->
+<rect y="-870" width="1600" height="871" fill="url(#dawn-upper-sky)"/>
+<g fill="url(#dawn-cloud)" opacity=".7" filter="url(#dawn-soft-cloud)">
+  <path d="M-60-532C-12-554 17-546 40-531C67-542 97-536 116-520C143-533 169-524 187-510C215-521 242-506 261-501L306-492L341-483L309-474L275-483L254-479L226-489L201-485L172-497L147-492L123-505L99-501L70-515L46-510L20-521L-7-517Z"/>
+  <path d="M987-616C1021-629 1045-620 1069-610C1091-624 1115-616 1136-602C1162-611 1184-597 1203-592C1229-601 1250-591 1275-584L1324-574L1371-560L1331-554L1297-565L1271-561L1241-573L1218-568L1191-580L1165-577L1137-587L1117-583L1087-595L1066-591L1037-602L1013-598Z"/>
+  <path d="M1246-316C1276-332 1303-324 1323-311C1347-320 1368-310 1389-301C1411-314 1435-305 1451-293C1473-301 1498-288 1521-283L1563-279L1621-258L1584-251L1552-261L1525-257L1496-269L1472-266L1445-279L1425-274L1397-286L1373-282L1348-296L1324-290L1296-303L1274-298Z"/>
+  <path d="M173-193C202-207 226-200 246-188C271-198 292-188 311-181C331-189 355-179 373-172L419-158L394-152L366-159L345-155L319-167L297-163L271-175L252-170L227-182L207-177Z"/>
+</g>
+<g fill="#f6dec5" opacity=".5">
+  <path d="M132-500l22 5 21-3 24 10 23-2 28 10-25-3-20 1-24-9-22 1ZM1121-590l18 6 24-3 24 10 25-1 30 9-27-2-20 2-27-10-20 1ZM1379-286l20 5 21-3 27 11 23-2 34 11-28-3-22 2-27-10-22 1Z"/>
+  <path d="M405-593l24-4 35 8-29 2ZM696-420l20-5 28 8-24 2ZM245-363l30-5 37 10-28 1ZM918-219l24-6 35 9-31 3Z" opacity=".5"/>
+</g>
+<rect width="1600" height="516" fill="url(#dawn-sky)"/>
+<rect y="-100" width="1600" height="616" fill="url(#dawn-sunlight)"/>
+
+<!-- Long, broken cloud banks keep the middle of the composition open. -->
+<g fill="url(#dawn-cloud)" filter="url(#dawn-soft-cloud)">
+  <path d="M30 67C58 53 83 55 106 60C126 43 153 46 173 57C195 48 223 51 238 64C263 57 282 68 307 65C324 53 352 57 361 72C383 68 399 80 421 79L451 85L433 94L392 95L365 89L340 95L309 89L281 90L253 80L228 84L204 74L181 80L157 69L139 77L113 70L88 75L63 65Z"/>
+  <path d="M315 110C339 100 356 104 373 111C392 96 413 101 421 112C442 110 453 121 475 119C493 108 514 116 524 127L550 130L526 138L504 133L481 138L454 130L436 134L412 124L389 127L369 119L345 123Z"/>
+  <path d="M891 47C924 37 947 43 970 49C993 36 1018 40 1033 53L1061 48L1082 57L1103 57L1125 68L1100 72L1076 65L1058 72L1033 63L1007 67L983 58L958 62L934 52L910 55Z" opacity=".68"/>
+  <path d="M1064 122C1091 109 1113 112 1135 121C1147 103 1170 101 1184 114C1209 105 1230 114 1247 128C1268 113 1293 119 1309 133C1334 122 1355 128 1371 141C1397 136 1413 147 1431 145C1453 134 1474 143 1485 156L1527 162L1495 176L1467 169L1442 177L1410 166L1385 171L1357 160L1334 164L1306 152L1284 159L1259 146L1235 152L1210 138L1186 145L1163 133L1136 139L1111 130L1088 133Z"/>
+  <path d="M1311 42C1330 30 1350 32 1364 40C1389 27 1418 29 1435 44C1454 35 1473 44 1483 54C1507 46 1524 57 1544 58L1580 70L1556 76L1533 69L1514 75L1490 64L1466 68L1446 57L1422 61L1400 50L1379 56L1358 47L1338 51Z" opacity=".82"/>
+  <path d="M16 198C40 185 67 193 87 189C107 173 129 181 142 191C164 184 182 193 195 202C216 195 236 203 251 211L281 213L312 225L290 232L267 226L245 232L217 220L197 225L171 214L149 219L128 209L104 213L83 203L58 209L34 200Z"/>
+  <path d="M354 233C374 227 389 231 404 237L429 233L448 241L474 240L499 248L478 252L454 248L435 253L413 247L393 250L375 242Z" opacity=".72"/>
+  <path d="M950 241C972 231 995 237 1011 244C1030 233 1052 237 1068 249C1092 244 1110 254 1130 257L1164 258L1191 266L1160 272L1139 266L1118 273L1089 262L1069 267L1046 255L1025 259L1004 251L982 256Z" opacity=".76"/>
+  <path d="M1236 294C1264 281 1288 287 1308 293C1331 282 1352 289 1369 301C1397 293 1417 305 1437 309L1491 316L1467 325L1435 320L1411 326L1381 315L1359 320L1335 308L1312 313L1288 303L1264 307Z" opacity=".85"/>
+</g>
+<g fill="#ffe0bc" opacity=".77">
+  <path d="M71 72l27 2 16-5 22 7 17-3 26 8 25-4 21 8-29 1-23-5-24 2-17-6-21 2Z"/>
+  <path d="M274 88l22 2 17-3 18 7 27-2 25 7-23 2-28-4-19 2-20-6Z"/>
+  <path d="M405 128l19 5 17-2 19 6 30-1 20 5-28 2-22-3-21 1Z"/>
+  <path d="M1145 138l21-4 19 9 19-3 23 11 20-3 23 11-26-3-19 1-22-9-17 1-20-7Z"/>
+  <path d="M1325 162l20-3 21 8 19-3 27 10 20-3 24 7-33 2-19-5-20 1-23-7-17 1Z"/>
+  <path d="M82 207l22 7 22-4 21 10 22-3 23 10-29-3-18 1-21-9-20 1Z"/>
+  <path d="M1007 255l19 5 22-4 21 12 23-4 27 12-25-4-22 1-25-11-23 1Z"/>
+</g>
+<g fill="#f7dfc4" opacity=".5">
+  <path d="M507 60q19-8 30-1l27 3-20 5-19-4ZM650 93q22-6 34 1l22 5-31-2-18 3ZM777 166l20-4 27 6-22 2ZM555 212l25-3 21 6-30-1ZM790 269l28-4 28 7-33-1ZM1107 200l19-4 18 7-24-1ZM1195 82l20-6 22 7-26-1Z"/>
+</g>
+
+<!-- The sun sits just above the sea; the glow stays behind the ridgelines. -->
+<circle cx="430" cy="323" r="35" fill="#ffefb3" opacity=".34" filter="url(#dawn-soft-mist)"/>
+<circle cx="430" cy="323" r="23" fill="#fff2bc"/>
+<circle cx="429" cy="321" r="20.5" fill="#fff7ce" opacity=".78"/>
+
+<!-- Far mountains lose contrast into the warm air. -->
+<path d="M0 341L31 328L62 332L92 311L114 316L144 299L163 308L180 305L213 327L239 323L275 343L294 338L326 354L351 346L379 359L420 352L463 365L507 361L556 374H0Z" fill="#b4aaa9"/>
+<path d="M0 353L35 345L62 331L88 338L123 319L140 323L163 339L190 335L220 350L251 347L276 363L306 358L339 370L389 366L424 376H0Z" fill="#a9a6a7" opacity=".79"/>
+<path d="M838 372L884 354L907 358L934 339L959 342L982 322L1004 328L1035 306L1067 312L1097 286L1121 293L1151 267L1180 279L1196 272L1228 292L1252 282L1283 305L1315 297L1347 268L1371 277L1401 247L1424 254L1454 229L1483 243L1512 227L1546 244L1600 220V393H838Z" fill="url(#dawn-distant-rock)"/>
+<path d="M1118 316L1151 267L1141 303L1165 298L1148 323L1180 314L1224 339L1181 329L1155 334ZM1362 291L1401 247L1390 280L1409 275L1385 305L1411 296L1452 315L1413 309L1387 320Z" fill="#d9c2ad" opacity=".28"/>
+
+<!-- A quiet bay with short, irregular ripples and a widening sun reflection. -->
+<rect y="361" width="1600" height="155" fill="url(#dawn-sea)"/>
+<g clip-path="url(#dawn-water-clip)">
+  <ellipse cx="444" cy="425" rx="199" ry="126" fill="url(#dawn-reflection)"/>
+  <path d="M0 364H1600" stroke="#e5d8bd" stroke-width="3" opacity=".65"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M412 367h37m-47 4h57m-66 5h31m9 0h28m-66 6h58m-79 5h38m13 0h40m-86 7h76m-99 7h33m15 0h76m-135 8h66m14 0h39m-108 8h105m-140 9h67m15 0h84m-179 9h48m13 0h72m-150 10h107m16 0h35m-159 11h65m13 0h97m-190 12h84m15 0h50m-156 12h122m17 0h52m-211 12h63m16 0h115" stroke="#ffe8b8" stroke-width="1.45" opacity=".62"/>
+    <path d="M38 378h71m22 0h33m44 4h48m293-7h61m53 5h104m39-6h37m41 10h74m-790 14h45m39-4h60m288 3h51m48-6h86m42 12h61m22-8h97m-915 29h43m49-8h90m297 13h66m49-11h51m30 8h87m43-4h50m-925 35h93m57-9h52m268 12h48m39-16h95m55 7h46m-864 32h43m42-5h87m274 9h62m38-14h57m25 12h89m-876 31h55m30-8h76m252 6h98m23-9h57m36 16h59" stroke="#dbe2da" stroke-width="1" opacity=".49"/>
+    <path d="M170 390h52m370-4h42m37 8h65m84-9h36M92 419h47m93-7h54m275 10h57m119-7h104M174 449h55m346 2h60m90-11h77M80 480h62m57-5h56m276 13h66m83-7h81M579 508h72m97-9h42" stroke="#7696a3" stroke-width="1.2" opacity=".37"/>
+  </g>
+</g>
+
+<!-- The distant shore breaks the horizon without closing the open water. -->
+<path d="M0 352L34 340L68 347L99 335L121 347L148 343L181 358L208 354L236 367L267 365L301 377L334 375L352 381L329 387L277 385L247 380L203 382L172 374L130 375L99 365L60 369L24 360L0 364Z" fill="#889c9e"/>
+<path d="M94 358L111 351L140 357L159 369L202 369L181 374L147 368L126 368Z" fill="#bbc0b2" opacity=".48"/>
+<path d="M701 366l31-5 23 2 16-4 24 6 31 2-39 2-51-1Z" fill="#a3b3b5"/>
+<path d="M887 365L919 350L943 354L973 337L995 343L1029 322L1050 326L1084 303L1110 307L1130 298L1154 312L1187 301L1210 315L1239 309L1272 331L1304 318L1336 300L1362 306L1392 282L1422 290L1451 271L1481 280L1514 259L1545 269L1600 248V446L1556 434L1518 440L1473 427L1437 431L1394 413L1359 418L1320 401L1280 406L1244 390L1205 396L1169 382L1127 388L1090 376L1049 382L1018 374L977 379L941 370Z" fill="url(#dawn-coastal-rock)"/>
+<g fill="#c3bd9d" opacity=".29">
+  <path d="M974 366L1029 322L1012 345L1021 347L998 374L1015 369L1031 381L1006 376Z"/>
+  <path d="M1086 365L1110 307L1099 338L1111 331L1107 353L1123 339L1130 365L1112 379L1096 373Z"/>
+  <path d="M1241 383L1272 331L1260 361L1280 351L1269 373L1291 366L1277 392L1251 398Z"/>
+  <path d="M1361 396L1392 282L1378 337L1394 326L1383 366L1405 354L1394 385L1379 412Z"/>
+</g>
+<path d="M867 372C961 349 1004 376 1070 366C1123 356 1169 376 1212 372C1162 389 1110 378 1062 387C999 397 958 375 867 384Z" fill="#e2d9c2" opacity=".5" filter="url(#dawn-soft-mist)"/>
+
+<!-- Closer headlands use warmer ridge light and deeper woodland greens. -->
+<g clip-path="url(#dawn-right-coast-clip)">
+  <rect x="940" y="230" width="660" height="286" fill="url(#dawn-woodland)"/>
+  <path d="M1599 254L1551 291L1543 319L1512 334L1498 367L1468 379L1450 411L1419 426L1407 452L1356 481L1332 516H1600Z" fill="#52756a"/>
+  <path d="M1500 278L1471 314L1454 319L1438 352L1418 354L1399 380L1369 389L1340 420L1312 422L1286 452L1238 473L1206 516H1148L1182 473L1224 458L1256 424L1302 398L1336 371L1371 352L1398 320L1437 299Z" fill="#a4a17a" opacity=".41"/>
+  <path d="M1431 340L1419 374L1392 398L1380 427L1349 449L1317 489L1308 516H1238L1254 486L1294 454L1310 429L1342 409L1373 375Z" fill="#a7a394" opacity=".5"/>
+  <path d="M1373 383L1361 412L1340 437L1324 482L1303 499L1317 462L1318 447L1334 423L1343 400Z" fill="#d6c7a5" opacity=".43"/>
+  <path d="M1467 390L1450 424L1457 444L1440 460L1450 485L1434 516H1398L1417 484L1411 465L1436 437L1433 421Z" fill="#425f5b" opacity=".5"/>
+  <g fill="#bac092" opacity=".31">
+    <path d="M1314 348l11-8 8 3 8-5 13 7-8 7-11-3-9 4ZM1397 319l9-7 9 2 7-5 11 6-5 7-14-3-9 5ZM1482 299l14-9 11 4 7-4 14 8-12 6-10-4-12 6ZM1213 390l12-6 11 2 10-6 9 7-9 6-9-3-15 6ZM1271 420l11-8 9 3 9-4 12 8-9 5-13-3-9 5ZM1133 433l13-7 10 4 11-6 12 6-10 7-13-2-14 5ZM1080 470l15-9 11 3 7-4 14 7-10 7-12-3-14 5Z"/>
+  </g>
+  <g fill="#355c57" opacity=".38">
+    <path d="M1520 355l9-9 11 4 10-4 9 10-11 5-11-4-9 3ZM1412 447l13-9 9 5 13-4 10 11-10 6-13-4-9 3ZM1301 480l10-7 9 4 11-7 13 7-9 7-13-1-10 3ZM1491 491l14-10 10 3 12-7 13 10-11 6-11-3-13 6ZM1174 466l11-9 10 3 9-5 12 10-12 4-8-2-13 4Z"/>
+  </g>
+</g>
+<path d="M1600 246C1556 253 1531 275 1504 274L1468 290L1436 285L1408 309L1388 304L1357 324L1328 318L1309 339L1277 341L1252 364L1223 368L1204 384L1166 391L1146 408L1112 415L1095 435L1053 445L1033 459L990 471L965 494" fill="none" stroke="#b7b38c" stroke-width="2" opacity=".36"/>
+<path d="M1022 449C1072 423 1115 429 1159 413C1195 401 1217 398 1243 402C1211 412 1208 418 1174 423C1128 429 1087 440 1048 444L1009 459Z" fill="#e1e0ce" opacity=".69" filter="url(#dawn-soft-mist)"/>
+<path d="M1095 485C1176 461 1201 478 1266 452C1306 436 1339 438 1370 446C1325 446 1314 459 1278 467C1215 480 1176 476 1137 490L1072 502Z" fill="#d5ded2" opacity=".53" filter="url(#dawn-soft-mist)"/>
+
+<path d="M0 386L29 391L51 384L75 397L99 392L124 407L150 399L176 415L205 410L230 427L258 423L280 439L307 437L333 454L361 453L385 469L413 467L441 486L470 484L499 505L535 516H0Z" fill="url(#dawn-near-shore)"/>
+<path d="M0 387L28 394L51 387L74 400L99 395L122 410L149 402L176 418L204 413L230 430L258 426L280 442L307 440L333 457L360 456L385 472L413 470L441 489L470 487L496 507" fill="none" stroke="#b8b187" stroke-width="3" opacity=".48"/>
+<path d="M91 411L116 420L128 438L158 444L172 464L201 471L225 498L269 516H174L151 484L122 467L111 443L84 433L61 414Z" fill="#9fa186" opacity=".44"/>
+<path d="M238 446L255 453L264 472L287 478L303 499L334 516H295L276 498L253 488L246 468L225 458Z" fill="#c0bba0" opacity=".35"/>
+<path d="M36 422l17-8 13 5 12-4 17 10-16 5-12-4-19 5ZM141 438l12-6 13 3 9-3 12 9-12 4-12-4-11 3ZM208 463l16-7 10 4 11-4 15 8-14 5-12-3-14 3ZM321 489l13-5 11 4 10-2 12 8-16 3-13-5-9 2Z" fill="#b3b586" opacity=".35"/>
+<path d="M195 478C239 461 274 479 299 479C326 478 354 470 378 480C348 479 333 491 300 490C264 489 243 482 219 490L172 494Z" fill="#e0dfc6" opacity=".51" filter="url(#dawn-soft-mist)"/>
+<rect y="343" width="1600" height="57" fill="url(#dawn-haze)" opacity=".46"/>
+</svg>

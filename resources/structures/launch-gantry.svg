@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1110" viewBox="0 0 1600 1110" role="img" aria-labelledby="gantry-title gantry-desc">
+<title id="gantry-title">Red steel launch gantry</title>
+<desc id="gantry-desc">Twin lattice towers with three cantilevered service decks on each side, a crown bridge, access ladders, suspended hoses and amber warning lights. The central launch opening is clear.</desc>
+<style>
+@keyframes gantry-pulse {0%,100%{opacity:1} 50%{opacity:.3}}
+.gantry-beacon-light {animation:gantry-pulse 1.6s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.gantry-beacon-light{animation:none}}
+</style>
+<defs>
+  <linearGradient id="gantry-column" x2="1" y2="0">
+    <stop stop-color="#f1a16b"/><stop offset=".14" stop-color="#cb6338"/>
+    <stop offset=".35" stop-color="#a64428"/><stop offset=".8" stop-color="#b5502d"/>
+    <stop offset="1" stop-color="#642f24"/>
+  </linearGradient>
+  <linearGradient id="gantry-girder" x2="0" y2="1">
+    <stop stop-color="#db8350"/><stop offset=".13" stop-color="#ba5830"/>
+    <stop offset=".22" stop-color="#773725"/><stop offset=".76" stop-color="#a3492a"/>
+    <stop offset=".84" stop-color="#642f24"/><stop offset="1" stop-color="#c56a3e"/>
+  </linearGradient>
+  <linearGradient id="gantry-depth" x2="1" y2=".2">
+    <stop stop-color="#713523"/><stop offset=".55" stop-color="#472c25"/><stop offset="1" stop-color="#934225"/>
+  </linearGradient>
+  <linearGradient id="gantry-foot" x2="0" y2="1">
+    <stop stop-color="#c6ba9c"/><stop offset="1" stop-color="#7e8378"/>
+  </linearGradient>
+  <radialGradient id="gantry-light-glow">
+    <stop stop-color="#fff2b5" stop-opacity=".85"/><stop offset=".25" stop-color="#ffc66e" stop-opacity=".35"/>
+    <stop offset="1" stop-color="#ffad4e" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="gantry-ladder-rungs" width="17" height="13" patternUnits="userSpaceOnUse">
+    <path d="M2 6H15" stroke="#472f25" stroke-width="3"/><path d="M2 5H15" stroke="#c38d58" stroke-width="1.4"/>
+  </pattern>
+  <pattern id="gantry-deck-grating" width="8" height="8" patternUnits="userSpaceOnUse">
+    <path d="M0 1H8M1 0V8" stroke="#e49c64" stroke-opacity=".35" stroke-width=".7"/>
+  </pattern>
+  <g id="gantry-bolt">
+    <circle r="2.1" fill="#4f3026"/><path d="M-1.3-.8L0-1.6 1.4-.7 1.4.8 0 1.5-1.3.7Z" fill="#d99462"/>
+    <path d="M-.7-.9H.8" stroke="#f4c389" stroke-width=".6"/>
+  </g>
+  <g id="gantry-bay">
+    <path d="M7 2L86 108M86 2L7 108" fill="none" stroke="#4c2c24" stroke-width="10"/>
+    <path d="M7 2L86 108M86 2L7 108" fill="none" stroke="#ae4e2b" stroke-width="7"/>
+    <path d="M5 3L84 108M84 2L5 108" fill="none" stroke="#e38b53" stroke-width="1.5"/>
+    <path d="M0 0H93V12H0Z" fill="url(#gantry-girder)"/>
+    <path d="M-1 0H94" stroke="#f3b37a" stroke-width="1.5"/>
+    <path d="M0 11L16 11 0 29ZM93 11H77L93 29ZM0 110V91L16 110ZM93 110V91L77 110Z" fill="#793b28"/>
+    <path d="M39 50H54V66H39Z" fill="#95442a" stroke="#d78450"/>
+    <use href="#gantry-bolt" x="43" y="54"/><use href="#gantry-bolt" x="50" y="62"/>
+    <use href="#gantry-bolt" x="6" y="5"/><use href="#gantry-bolt" x="87" y="5"/>
+    <use href="#gantry-bolt" x="6" y="103"/><use href="#gantry-bolt" x="87" y="103"/>
+  </g>
+  <g id="gantry-side-bay">
+    <path d="M0 0L26-13V97L0 110Z" fill="none" stroke="#583023" stroke-width="5"/>
+    <path d="M0 0L26 97M26-13L0 110" fill="none" stroke="#8c4026" stroke-width="4"/>
+    <path d="M0 1L25-11M1 1L25 96" fill="none" stroke="#c16e3d" stroke-width="1.2"/>
+  </g>
+  <g id="gantry-cage-ring" fill="none">
+    <path d="M0 0C-8 5-8 15 0 20H17C25 15 25 5 17 0" stroke="#4e3328" stroke-width="3"/>
+    <path d="M0-1C-8 4-8 14 0 19H17C25 14 25 4 17-1" stroke="#bb8050" stroke-width="1.4"/>
+  </g>
+  <g id="gantry-beacon">
+    <path d="M0 0V-17M-5-17H5" stroke="#623c2b" stroke-width="3"/>
+    <path d="M-4-18V-27Q0-33 4-27V-18Z" fill="#d98339" stroke="#895433"/>
+    <g class="gantry-beacon-light">
+      <circle cy="-25" r="23" fill="url(#gantry-light-glow)"/>
+      <path d="M-2-19V-27Q0-30 2-27V-19Z" fill="#fff2ba"/>
+    </g>
+    <path d="M-5-17H5" stroke="#dcac68" stroke-width="2"/>
+  </g>
+  <g id="gantry-railing-section" fill="none">
+    <path d="M0 0V-26H35V0M0-13H35" stroke="#603b2c" stroke-width="2.5"/>
+    <path d="M-1-26H34M-1-13H34M-1-26V0M34-26V0" stroke="#da935e" stroke-width=".9"/>
+  </g>
+  <g id="gantry-service-deck">
+    <!-- Brackets transfer the cantilever loads into the tower columns. -->
+    <path d="M-151 17L9 128V20M-91 20L9 88M139 19L84 83" fill="none" stroke="#492b23" stroke-width="14"/>
+    <path d="M-151 17L9 128V20M-91 20L9 88M139 19L84 83" fill="none" stroke="#ac4c29" stroke-width="9"/>
+    <path d="M-151 14L6 123M-91 17L6 84M138 17L82 80" fill="none" stroke="#e59054" stroke-width="1.7"/>
+    <path d="M-111 20V46M-72 20V74M-33 20V101" fill="none" stroke="#834026" stroke-width="5"/>
+    <path d="M-162 0L-145-12H162L145 0Z" fill="#cb7845"/>
+    <path d="M-162 0L-145-12H162L145 0Z" fill="url(#gantry-deck-grating)"/>
+    <path d="M145 0L162-12V12L145 26Z" fill="#713724"/>
+    <path d="M-162 0H145V25H-162Z" fill="url(#gantry-girder)" stroke="#683222"/>
+    <path d="M-163 0H146M-163 25H146" stroke="#e38c54" stroke-width="2"/>
+    <path d="M-143 4V21M-100 4V21M-57 4V21M-14 4V21M29 4V21M72 4V21M115 4V21" stroke="#6e3324" stroke-width="3"/>
+    <path d="M-141 4V21M-98 4V21M-55 4V21M-12 4V21M31 4V21M74 4V21M117 4V21" stroke="#ce7745"/>
+    <use href="#gantry-bolt" x="-154" y="7"/><use href="#gantry-bolt" x="-154" y="18"/>
+    <use href="#gantry-bolt" x="136" y="7"/><use href="#gantry-bolt" x="136" y="18"/>
+    <g transform="translate(-160 0)">
+      <use href="#gantry-railing-section"/><use href="#gantry-railing-section" x="35"/>
+      <use href="#gantry-railing-section" x="70"/><use href="#gantry-railing-section" x="105"/>
+      <use href="#gantry-railing-section" x="140"/><use href="#gantry-railing-section" x="175"/>
+      <use href="#gantry-railing-section" x="210"/><use href="#gantry-railing-section" x="245"/>
+      <path d="M280-26H305V0M280-13H305M305-26L322-38V-12M305-13L322-25" fill="none" stroke="#a96a44" stroke-width="2"/>
+    </g>
+    <use href="#gantry-beacon" x="-147" y="-26"/>
+    <path d="M-135 10h16m34 9h19m44-13h10M32 7h24m29 14h11" stroke="#e19a60" stroke-width=".7" opacity=".65"/>
+  </g>
+  <g id="gantry-access-arm">
+    <path d="M0-10H69L91 1H170V12H87L65 2H0Z" fill="#5a3426"/>
+    <path d="M0-12H70L93-1H170V3H91L68-8H0Z" fill="#c27142"/>
+    <path d="M0 3H66L89 15H170V21H86L63 9H0Z" fill="url(#gantry-girder)"/>
+    <path d="M4-12V-34H67L91-23H169V-1M4-22H67L91-11H169M26-34V-12M47-34V-12M68-33V-9M91-23V-1M116-23V-1M143-23V-1" fill="none" stroke="#723e2a" stroke-width="2.5"/>
+    <path d="M4-35H67L91-24H169M4-23H67L91-12H169" fill="none" stroke="#e0a06b"/>
+    <path d="M7 9L49 34 80 16M91 21L126 43 160 21" fill="none" stroke="#9a4c2d" stroke-width="4"/>
+    <path d="M27 12C48 83 81 78 93 24M35 14C52 68 75 62 86 24M98 22C116 67 142 65 155 23" fill="none" stroke="#3a3931" stroke-width="4"/>
+    <path d="M26 12C47 82 80 77 92 24M98 21C116 65 141 63 154 23" fill="none" stroke="#ad9971" stroke-width="1"/>
+  </g>
+  <g id="gantry-tower">
+    <!-- Recessed side bracing, ladder and utility risers. -->
+    <path d="M91 92L121 77V1085H91Z" fill="url(#gantry-depth)"/>
+    <g transform="translate(93 100)">
+      <use href="#gantry-side-bay"/><use href="#gantry-side-bay" y="110"/>
+      <use href="#gantry-side-bay" y="220"/><use href="#gantry-side-bay" y="330"/>
+      <use href="#gantry-side-bay" y="440"/><use href="#gantry-side-bay" y="550"/>
+      <use href="#gantry-side-bay" y="660"/><use href="#gantry-side-bay" y="770"/>
+      <use href="#gantry-side-bay" y="880"/>
+    </g>
+    <path d="M120 83V1086" stroke="#b75b32" stroke-width="5"/>
+    <path d="M-17 1088V138Q-17 125-4 125H5M-25 1088V490Q-25 478-12 478H3" fill="none" stroke="#542f24" stroke-width="7"/>
+    <path d="M-18 1088V138Q-18 124-4 124H5M-26 1088V490Q-26 477-12 477H3" fill="none" stroke="#ce844d" stroke-width="2.5"/>
+    <path d="M-21 196H-11M-21 426H-11M-30 671H-12M-30 896H-12" stroke="#663b28" stroke-width="6"/>
+    <rect x="99" y="103" width="17" height="984" fill="url(#gantry-ladder-rungs)"/>
+    <path d="M100 1087V103H115V1087" fill="none" stroke="#d39b63" stroke-width="2.5"/>
+    <g transform="translate(99 168)">
+      <use href="#gantry-cage-ring"/><use href="#gantry-cage-ring" y="110"/>
+      <use href="#gantry-cage-ring" y="220"/><use href="#gantry-cage-ring" y="330"/>
+      <use href="#gantry-cage-ring" y="440"/><use href="#gantry-cage-ring" y="550"/>
+      <use href="#gantry-cage-ring" y="660"/><use href="#gantry-cage-ring" y="770"/>
+    </g>
+    <path d="M93 171V967M123 171V967" stroke="#895837" stroke-width="1.5"/>
+    <!-- Nine open bays keep the landscape visible through the steelwork. -->
+    <g transform="translate(0 100)">
+      <use href="#gantry-bay"/><use href="#gantry-bay" y="110"/>
+      <use href="#gantry-bay" y="220"/><use href="#gantry-bay" y="330"/>
+      <use href="#gantry-bay" y="440"/><use href="#gantry-bay" y="550"/>
+      <use href="#gantry-bay" y="660"/><use href="#gantry-bay" y="770"/>
+      <use href="#gantry-bay" y="880"/>
+    </g>
+    <rect x="-5" y="88" width="15" height="1004" fill="url(#gantry-column)" stroke="#713521"/>
+    <rect x="83" y="88" width="15" height="1004" fill="url(#gantry-column)" stroke="#713521"/>
+    <path d="M-4 89V1092M84 89V1092" stroke="#eda873" stroke-width="1.6"/>
+    <g fill="#8f4129" stroke="#d57d49">
+      <path d="M-7 425H12V449H-7ZM81 425H100V449H81Z"/>
+      <path d="M-7 755H12V779H-7ZM81 755H100V779H81Z"/>
+    </g>
+    <use href="#gantry-bolt" x="2" y="431"/><use href="#gantry-bolt" x="2" y="443"/>
+    <use href="#gantry-bolt" x="90" y="431"/><use href="#gantry-bolt" x="90" y="443"/>
+    <use href="#gantry-bolt" x="2" y="761"/><use href="#gantry-bolt" x="2" y="773"/>
+    <use href="#gantry-bolt" x="90" y="761"/><use href="#gantry-bolt" x="90" y="773"/>
+    <!-- Splayed legs land on shoes and concrete plinths, behind the base railing. -->
+    <path d="M-75 1088L2 862M-47 1008H0M-27 950H0" fill="none" stroke="#5a3023" stroke-width="17"/>
+    <path d="M-75 1088L2 862M-47 1008H0M-27 950H0" fill="none" stroke="#ad4f2c" stroke-width="11"/>
+    <path d="M-80 1088L-3 862M-47 1003H0M-27 945H0" fill="none" stroke="#e38e55" stroke-width="2"/>
+    <path d="M-88 1086H-58V1095H-88ZM-14 1086H20V1095H-14ZM75 1086H109V1095H75Z" fill="#8b4027" stroke="#df9156"/>
+    <path d="M-99 1095L-91 1089H-56L-48 1095ZM-23 1095L-15 1089H22L30 1095ZM65 1095L73 1089H111L120 1095Z" fill="#ded0ae"/>
+    <path d="M-99 1095H-48V1110H-99ZM-23 1095H30V1110H-23ZM65 1095H120V1110H65Z" fill="url(#gantry-foot)"/>
+    <path d="M-86 1095V1088M-61 1095V1088M-12 1095V1088M18 1095V1088M77 1095V1088M106 1095V1088" stroke="#453e31" stroke-width="2.5"/>
+    <use href="#gantry-service-deck" y="300"/>
+    <use href="#gantry-service-deck" y="550"/>
+    <use href="#gantry-service-deck" y="800"/>
+    <g transform="translate(118 222) scale(.55 1)"><use href="#gantry-access-arm"/></g>
+    <g transform="translate(118 472) scale(.55 1)"><use href="#gantry-access-arm"/></g>
+    <g transform="translate(118 722) scale(.55 1)"><use href="#gantry-access-arm"/></g>
+    <g transform="translate(118 972) scale(.55 1)"><use href="#gantry-access-arm"/></g>
+  </g>
+</defs>
+<g transform="translate(300 0)">
+  <use href="#gantry-tower" x="238"/>
+  <g transform="translate(1000 0) scale(-1 1)"><use href="#gantry-tower" x="238"/></g>
+
+  <!-- The crown is an open truss, with room below for the rocket nose. -->
+  <path d="M202 83H796L814 69H220Z" fill="#d88751"/>
+  <path d="M796 83L814 69V101L796 115Z" fill="#713925"/>
+  <path d="M215 86L273 115 331 86 389 115 447 86 505 115 563 86 621 115 679 86 737 115 795 86" fill="none" stroke="#573125" stroke-width="7"/>
+  <path d="M215 85L273 114 331 85 389 114 447 85 505 114 563 85 621 114 679 85 737 114 795 85" fill="none" stroke="#bb6338" stroke-width="4"/>
+  <path d="M202 80H796V89H202ZM202 112H796V121H202Z" fill="url(#gantry-girder)" stroke="#763723"/>
+  <path d="M202 80H796M202 112H796" stroke="#f0ad72" stroke-width="1.5"/>
+  <path d="M202 121L241 165M796 121L758 165" stroke="#713b26" stroke-width="9"/>
+  <path d="M201 120L240 164M795 120L757 164" stroke="#d07843" stroke-width="3"/>
+  <g transform="translate(220 78)">
+    <use href="#gantry-railing-section"/><use href="#gantry-railing-section" x="35"/>
+    <use href="#gantry-railing-section" x="70"/><use href="#gantry-railing-section" x="105"/>
+    <use href="#gantry-railing-section" x="140"/><use href="#gantry-railing-section" x="175"/>
+    <use href="#gantry-railing-section" x="210"/><use href="#gantry-railing-section" x="245"/>
+    <use href="#gantry-railing-section" x="280"/><use href="#gantry-railing-section" x="315"/>
+    <use href="#gantry-railing-section" x="350"/><use href="#gantry-railing-section" x="385"/>
+    <use href="#gantry-railing-section" x="420"/><use href="#gantry-railing-section" x="455"/>
+    <use href="#gantry-railing-section" x="490"/><use href="#gantry-railing-section" x="525"/>
+  </g>
+  <use href="#gantry-beacon" x="219" y="51"/><use href="#gantry-beacon" x="782" y="51"/>
+
+  <!-- Small service fittings break the symmetry without filling the launch opening. -->
+  <g transform="translate(135 273)">
+    <rect x="-9" y="-31" width="18" height="31" rx="3" fill="#747568" stroke="#443d30"/>
+    <path d="M-6-28V-4M0-31V-39H7V-47M-12-7H12" fill="none" stroke="#d3b080" stroke-width="2"/>
+    <path d="M-9-22H9M-9-6H9" stroke="#46463a" stroke-width="2"/>
+  </g>
+  <g transform="translate(834 522)">
+    <path d="M0 0V-27H23V0Z" fill="#65675b" stroke="#413a2d"/>
+    <path d="M4-23H19M4-19H19M4-15H19M4-11H19" stroke="#b9a27c"/>
+    <path d="M21-4H33V10" fill="none" stroke="#403c32" stroke-width="3"/>
+  </g>
+  <path d="M873 773V728M869 733H877M875 773V754H887" fill="none" stroke="#8d6744" stroke-width="3"/>
+</g>
+</svg>

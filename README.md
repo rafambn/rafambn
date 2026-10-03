@@ -1,10 +1,15 @@
-<div><a href="https://github.com/rafambn"><picture><source media="(max-width: 760px)" srcset="https://profile.rafambn.com/github/header.svg?layout=mobile"><img src="https://profile.rafambn.com/github/header.svg" width="100%" align="top" alt="Rafael Mendonça. Solutions architect. Making complex things simple. Profile views: Today, Week, Month and Total."></picture></a></div>
-<div><a href="https://github.com/rafambn/KMaP"><picture><source media="(max-width: 760px)" srcset="https://profile.rafambn.com/github/projects/KMaP.svg?layout=mobile"><img src="https://profile.rafambn.com/github/projects/KMaP.svg" width="100%" align="top" alt="KMaP repository. GitHub stars and recorded views. Open KMaP on GitHub."></picture></a></div>
-<div><a href="https://github.com/rafambn/FrameBar"><picture><source media="(max-width: 760px)" srcset="https://profile.rafambn.com/github/projects/FrameBar.svg?layout=mobile"><img src="https://profile.rafambn.com/github/projects/FrameBar.svg" width="100%" align="top" alt="FrameBar repository. GitHub stars and recorded views. Open FrameBar on GitHub."></picture></a></div>
-<div><a href="https://github.com/rafambn/KFlate"><picture><source media="(max-width: 760px)" srcset="https://profile.rafambn.com/github/projects/KFlate.svg?layout=mobile"><img src="https://profile.rafambn.com/github/projects/KFlate.svg" width="100%" align="top" alt="KFlate repository. GitHub stars and recorded views. Open KFlate on GitHub."></picture></a></div>
-<div><a href="https://github.com/rafambn/KeyManager"><picture><source media="(max-width: 760px)" srcset="https://profile.rafambn.com/github/projects/KeyManager.svg?layout=mobile"><img src="https://profile.rafambn.com/github/projects/KeyManager.svg" width="100%" align="top" alt="KeyManager repository. GitHub stars and recorded views. Open KeyManager on GitHub."></picture></a></div>
-<div><a href="https://github.com/rafambn/Scribe"><picture><source media="(max-width: 760px)" srcset="https://profile.rafambn.com/github/projects/Scribe.svg?layout=mobile"><img src="https://profile.rafambn.com/github/projects/Scribe.svg" width="100%" align="top" alt="Scribe repository. GitHub stars and recorded views. Open Scribe on GitHub."></picture></a></div>
-<div><a href="https://github.com/rafambn/wg-kotlin"><picture><source media="(max-width: 760px)" srcset="https://profile.rafambn.com/github/projects/wg-kotlin.svg?layout=mobile"><img src="https://profile.rafambn.com/github/projects/wg-kotlin.svg" width="100%" align="top" alt="wg-kotlin repository. GitHub stars and recorded views. Open wg-kotlin on GitHub."></picture></a></div>
-<div><a href="https://github.com/rafambn"><picture><source media="(max-width: 760px)" srcset="https://profile.rafambn.com/github/footer.svg?layout=mobile"><img src="https://profile.rafambn.com/github/footer.svg" width="100%" align="top" alt="Visit Rafael Mendonça on GitHub."></picture></a></div>
+<picture>
+  <source
+    media="(max-width: 700px)"
+    srcset="https://profile.rafambn.com/github/profile.svg?layout=mobile">
+  <img
+    src="https://profile.rafambn.com/github/profile.svg"
+    alt="Rafael Mendonça GitHub profile">
+</picture>
 
-[Explore the interactive harbor](https://profile.rafambn.com)
+[KMaP](https://github.com/rafambn/KMaP) ·
+[FrameBar](https://github.com/rafambn/FrameBar) ·
+[KFlate](https://github.com/rafambn/KFlate) ·
+[KeyManager](https://github.com/rafambn/KeyManager) ·
+[Scribe](https://github.com/rafambn/Scribe) ·
+[wg-kotlin](https://github.com/rafambn/wg-kotlin)
